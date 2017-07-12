@@ -1,0 +1,333 @@
+<html>
+<head>
+  <title>61-js进行表单验证实例分析</title>
+  <basefont face="微软雅黑" size="2" />
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="exporter-version" content="Evernote Windows/304720 (zh-CN, DDL); Windows/10.0.14393 (Win64);"/>
+  <style>
+    body, td {
+      font-family: 微软雅黑;
+      font-size: 10pt;
+    }
+  </style>
+</head>
+<body>
+<a name="1791"/>
+<h1>61-js进行表单验证实例分析</h1>
+<div>
+<table bgcolor="#D4DDE5" border="0">
+<tr><td><b>创建时间：</b></td><td><i>2017/6/22 星期四 10:24</i></td></tr>
+<tr><td><b>更新时间：</b></td><td><i>2017/6/22 星期四 10:24</i></td></tr>
+<tr><td><b>作者：</b></td><td><i>王平安</i></td></tr>
+</table>
+</div>
+<br/>
+
+<div>
+<span><div><p>本文实例讲述了js进行表单验证的方法。分享给大家供大家参考。具体实现方法如下：</p><p>1. 传统的表单验证代码</p><div><a style="CURSOR: pointer"><u>复制代码</u></a> 代码如下:</div><div>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt; <br/>
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt; <br/>
+&lt;head&gt; <br/>
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt; <br/>
+&lt;title&gt;表单验证&lt;/title&gt; <br/>
+&lt;script type=&quot;text/javascript&quot;&gt; <br/>
+ <br/>
+   function $(id) { <br/>
+       return document.getElementById(id); <br/>
+   } <br/>
+    <br/>
+   function check() { <br/>
+       var email = $(&quot;email&quot;).value; <br/>
+       var password = $(&quot;password&quot;).value; <br/>
+       var repassword = $(&quot;repassword&quot;).value; <br/>
+       var name = $(&quot;name&quot;).value; <br/>
+        <br/>
+       if(email == &quot;&quot;) { <br/>
+           alert(&quot;Email值不能为空&quot;); <br/>
+           $(&quot;email&quot;).focus(); <br/>
+           return false; <br/>
+       } <br/>
+        <br/>
+       if(email.indexOf(&quot;@&quot;) == -1 || email.indexOf(&quot;.&quot;) == -1) { <br/>
+           alert(&quot;邮箱格式不正确,必须包含@和.&quot;); <br/>
+           $(&quot;email&quot;).focus(); <br/>
+           return false; <br/>
+       } <br/>
+        <br/>
+       if(password == &quot;&quot;) { <br/>
+           alert(&quot;密码不能为空&quot;); <br/>
+           $(&quot;password&quot;).focus(); <br/>
+           return false; <br/>
+       } <br/>
+        <br/>
+       if(password.length &lt; 6) { <br/>
+           alert(&quot;密码长度必须大于或者等于6&quot;); <br/>
+           $(&quot;password&quot;).focus(); <br/>
+           return false; <br/>
+       } <br/>
+        <br/>
+       if(repassword != password) { <br/>
+           alert(&quot;两次输入的密码不一致&quot;); <br/>
+           $(&quot;repassword&quot;).focus(); <br/>
+           return false; <br/>
+       } <br/>
+        <br/>
+       if(name == &quot;&quot;) { <br/>
+           alert(&quot;姓名不能为空&quot;); <br/>
+           $(&quot;name&quot;).focus(); <br/>
+           return false; <br/>
+       } <br/>
+        <br/>
+       for(var i = 0; i &lt; name.length; i++) { <br/>
+           var j = name.subString(i , i+1); <br/>
+           if(isNaN(j) == false) { <br/>
+               alert('姓名中不能包含数字'); <br/>
+               $(&quot;name&quot;).focus(); <br/>
+               return false; <br/>
+           } <br/>
+       } <br/>
+   } <br/>
+&lt;/script&gt; <br/>
+&lt;/head&gt; <br/>
+&lt;body&gt; <br/>
+  &lt;form name=&quot;login_form&quot; method=&quot;post&quot; onsubmit=&quot;return check()&quot;&gt; <br/>
+      &lt;div&gt; <br/>
+           Email:&lt;input type=&quot;text&quot; name=&quot;email&quot; id=&quot;email&quot;/&gt; <br/>
+      &lt;/div&gt;  <br/>
+      &lt;div&gt; <br/>
+           密码:&lt;input type=&quot;password&quot; name=&quot;password&quot; id=&quot;password&quot; /&gt; <br/>
+      &lt;/div&gt; <br/>
+      &lt;div&gt; <br/>
+          重输密码:&lt;input type=&quot;password&quot; name=&quot;repassword&quot; id=&quot;repassword&quot; /&gt; <br/>
+      &lt;/div&gt; <br/>
+      &lt;div&gt; <br/>
+          姓名：&lt;input type=&quot;text&quot; name=&quot;name&quot; id=&quot;name&quot; /&gt; <br/>
+      &lt;/div&gt; <br/>
+      &lt;div&gt; <br/>
+          &lt;input type=&quot;submit&quot; value=&quot;注册&quot; /&gt; <br/>
+      &lt;/div&gt; <br/>
+  &lt;/form&gt; <br/>
+&lt;/body&gt; <br/>
+&lt;/html&gt;</div><p>2. 输入框后面有提示信息的表单验证</p><div><a style="CURSOR: pointer"><u>复制代码</u></a> 代码如下:</div><div>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt; <br/>
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt; <br/>
+&lt;head&gt; <br/>
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt; <br/>
+&lt;title&gt;表单验证&lt;/title&gt; <br/>
+&lt;script type=&quot;text/javascript&quot;&gt; <br/>
+ <br/>
+   function $(id) { <br/>
+       return document.getElementById(id); <br/>
+   } <br/>
+    <br/>
+   function check() { <br/>
+       var email = $(&quot;email&quot;).value; <br/>
+       var password = $(&quot;password&quot;).value; <br/>
+       var repassword = $(&quot;repassword&quot;).value; <br/>
+       var name = $(&quot;name&quot;).value; <br/>
+          <br/>
+       $(&quot;emailinfo&quot;).innerHTML = &quot;&quot;; <br/>
+       $(&quot;passwordinfo&quot;).innerHTML = &quot;&quot;; <br/>
+       $(&quot;repasswordinfo&quot;).innerHTML = &quot;&quot;; <br/>
+       $(&quot;nameinfo&quot;).innerHTML = &quot;&quot;; <br/>
+        <br/>
+       if(email == &quot;&quot;) { <br/>
+          $(&quot;emailinfo&quot;).innerHTML = &quot;Email值不能为空&quot;; <br/>
+           $(&quot;email&quot;).focus(); <br/>
+           return false; <br/>
+       } <br/>
+        <br/>
+       if(email.indexOf(&quot;@&quot;) == -1 || email.indexOf(&quot;.&quot;) == -1) { <br/>
+           $(&quot;emailinfo&quot;).innerHTML = &quot;邮箱格式不正确,必须包含@和.&quot;; <br/>
+           $(&quot;email&quot;).focus(); <br/>
+           return false; <br/>
+       } <br/>
+        <br/>
+       if(password == &quot;&quot;) { <br/>
+           $(&quot;passwordinfo&quot;).innerHTML = &quot;密码不能为空&quot;; <br/>
+           $(&quot;password&quot;).focus(); <br/>
+           return false; <br/>
+       } <br/>
+        <br/>
+       if(password.length &lt; 6) { <br/>
+           $(&quot;passwordinfo&quot;).innerHTML = &quot;密码长度必须大于或者等于6&quot;; <br/>
+           $(&quot;password&quot;).focus(); <br/>
+           return false; <br/>
+       } <br/>
+        <br/>
+       if(repassword != password) { <br/>
+           $(&quot;repasswordinfo&quot;).innerHTML = &quot;两次输入的密码不一致&quot;; <br/>
+           $(&quot;repassword&quot;).focus(); <br/>
+           return false; <br/>
+       } <br/>
+        <br/>
+       if(name == &quot;&quot;) { <br/>
+          $(&quot;nameinfo&quot;).innerHTML = &quot;姓名不能为空&quot;; <br/>
+           $(&quot;name&quot;).focus(); <br/>
+           return false; <br/>
+       } <br/>
+        <br/>
+       for(var i = 0; i &lt; name.length; i++) { <br/>
+           var j = name.subString(i , i+1); <br/>
+           if(isNaN(j) == false) { <br/>
+               $(&quot;nameinfo&quot;).innerHTML = '姓名中不能包含数字'; <br/>
+               $(&quot;name&quot;).focus(); <br/>
+               return false; <br/>
+           } <br/>
+       } <br/>
+   } <br/>
+&lt;/script&gt; <br/>
+&lt;/head&gt; <br/>
+&lt;body&gt; <br/>
+  &lt;form name=&quot;login_form&quot; method=&quot;post&quot; onsubmit=&quot;return check()&quot;&gt; <br/>
+      &lt;div&gt; <br/>
+           Email:&lt;input type=&quot;text&quot; name=&quot;email&quot; id=&quot;email&quot;/&gt;&lt;span id=&quot;emailinfo&quot;&gt;&lt;/span&gt; <br/>
+      &lt;/div&gt;    <br/>
+      &lt;div&gt; <br/>
+           密码:&lt;input type=&quot;password&quot; name=&quot;password&quot; id=&quot;password&quot; /&gt;&lt;span id=&quot;passwordinfo&quot;&gt;&lt;/span&gt; <br/>
+      &lt;/div&gt; <br/>
+      &lt;div&gt; <br/>
+          重输密码:&lt;input type=&quot;password&quot; name=&quot;repassword&quot; id=&quot;repassword&quot; /&gt;&lt;span id=&quot;repasswordinfo&quot;&gt;&lt;/span&gt; <br/>
+      &lt;/div&gt; <br/>
+      &lt;div&gt; <br/>
+          姓名：&lt;input type=&quot;text&quot; name=&quot;name&quot; id=&quot;name&quot; /&gt;&lt;span id=&quot;nameinfo&quot;&gt;&lt;/span&gt; <br/>
+      &lt;/div&gt; <br/>
+      &lt;div&gt; <br/>
+          &lt;input type=&quot;submit&quot; value=&quot;注册&quot; /&gt; <br/>
+      &lt;/div&gt; <br/>
+  &lt;/form&gt; <br/>
+&lt;/body&gt; <br/>
+&lt;/html&gt;</div><p>效果图如下所示：</p><p><img src="61-js进行表单验证实例分析_files/Image.gif" type="image/gif"/></p><p>3. 在输入框失去焦点时触发校验函数<br/></p><div><a style="CURSOR: pointer"><u>复制代码</u></a> 代码如下:</div><div>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt; <br/>
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt; <br/>
+&lt;head&gt; <br/>
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt; <br/>
+&lt;title&gt;表单验证&lt;/title&gt; <br/>
+&lt;script type=&quot;text/javascript&quot;&gt; <br/>
+   function $(id) { <br/>
+       return document.getElementById(id); <br/>
+   } <br/>
+    <br/>
+   function check() { <br/>
+       var email = $(&quot;email&quot;).value; <br/>
+       var password = $(&quot;password&quot;).value; <br/>
+       var repassword = $(&quot;repassword&quot;).value; <br/>
+       var name = $(&quot;name&quot;).value; <br/>
+          <br/>
+       $(&quot;emailinfo&quot;).innerHTML = &quot;&quot;; <br/>
+       $(&quot;passwordinfo&quot;).innerHTML = &quot;&quot;; <br/>
+       $(&quot;repasswordinfo&quot;).innerHTML = &quot;&quot;; <br/>
+       $(&quot;nameinfo&quot;).innerHTML = &quot;&quot;; <br/>
+        <br/>
+       if(email == &quot;&quot;) { <br/>
+          $(&quot;emailinfo&quot;).innerHTML = &quot;Email值不能为空&quot;; <br/>
+           return false; <br/>
+       } <br/>
+        <br/>
+       if(email.indexOf(&quot;@&quot;) == -1 || email.indexOf(&quot;.&quot;) == -1) { <br/>
+           $(&quot;emailinfo&quot;).innerHTML = &quot;邮箱格式不正确,必须包含@和.&quot;; <br/>
+           return false; <br/>
+       } <br/>
+        <br/>
+       if(password == &quot;&quot;) { <br/>
+           $(&quot;passwordinfo&quot;).innerHTML = &quot;密码不能为空&quot;; <br/>
+           return false; <br/>
+       } <br/>
+        <br/>
+       if(password.length &lt; 6) { <br/>
+           $(&quot;passwordinfo&quot;).innerHTML = &quot;密码长度必须大于或者等于6&quot;; <br/>
+           return false; <br/>
+       } <br/>
+        <br/>
+       if(repassword != password) { <br/>
+           $(&quot;repasswordinfo&quot;).innerHTML = &quot;两次输入的密码不一致&quot;; <br/>
+           return false; <br/>
+       } <br/>
+        <br/>
+       if(name == &quot;&quot;) { <br/>
+          $(&quot;nameinfo&quot;).innerHTML = &quot;姓名不能为空&quot;; <br/>
+           return false; <br/>
+       } <br/>
+        <br/>
+       for(var i = 0; i &lt; name.length; i++) { <br/>
+           var j = name.subString(i , i+1); <br/>
+           if(isNaN(j) == false) { <br/>
+               $(&quot;nameinfo&quot;).innerHTML = '姓名中不能包含数字'; <br/>
+               return false; <br/>
+           } <br/>
+       } <br/>
+   } <br/>
+    <br/>
+   function checkEmail() {  //校验Email <br/>
+       $('emailinfo').innerHTML = &quot;&quot;; <br/>
+       var email = $('email').value; <br/>
+       if(email == &quot;&quot;) { <br/>
+            $('emailinfo').innerHTML = &quot;Email值不能为空&quot;; <br/>
+            return false; <br/>
+       } <br/>
+        <br/>
+       if(email.indexOf('@') == -1 || email.indexOf('.') == -1) { <br/>
+            $('emailinfo').innerHTML = &quot;Email必须包含@和.&quot;; <br/>
+            return false; <br/>
+       } <br/>
+   } <br/>
+    <br/>
+   function checkPassword() {  //校验密码 <br/>
+      $('passwordinfo').innerHTML = &quot;&quot;; <br/>
+      var password = $('password').value; <br/>
+      if(password == &quot;&quot;) { <br/>
+          $(&quot;passwordinfo&quot;).innerHTML = &quot;密码不能为空&quot;; <br/>
+          return false; <br/>
+      } <br/>
+    <br/>
+     if(password.length &lt; 6) { <br/>
+         $(&quot;passwordinfo&quot;).innerHTML = &quot;密码长度必须大于或者等于6&quot;; <br/>
+         return false; <br/>
+      } <br/>
+   } <br/>
+    <br/>
+   function checkRepassword() { //校验重新输入的密码 <br/>
+      $('repassword').innerHTML = &quot;&quot;; <br/>
+      var repassword = $('repassword').value; <br/>
+      if(repassword != password) { <br/>
+           $(&quot;repasswordinfo&quot;).innerHTML = &quot;两次输入的密码不一致&quot;; <br/>
+           return false; <br/>
+       } <br/>
+   } <br/>
+    <br/>
+   function checkName() {  //校验姓名 <br/>
+       $('nameinfo').innerHTML = &quot;&quot;; <br/>
+       var name = $('name').value; <br/>
+       if(name == &quot;&quot;) { <br/>
+          $(&quot;nameinfo&quot;).innerHTML = &quot;姓名不能为空&quot;; <br/>
+           return false; <br/>
+       } <br/>
+        <br/>
+       for(var i = 0; i &lt; name.length; i++) { <br/>
+           var j = name.subString(i , i+1); <br/>
+           if(isNaN(j) == false) { <br/>
+               $(&quot;nameinfo&quot;).innerHTML = '姓名中不能包含数字'; <br/>
+               return false; <br/>
+           } <br/>
+       } <br/>
+   } <br/>
+&lt;/script&gt; <br/>
+&lt;/head&gt; <br/>
+&lt;body&gt; <br/>
+  &lt;form name=&quot;login_form&quot; method=&quot;post&quot; onsubmit=&quot;return check()&quot;&gt; <br/>
+      &lt;div&gt; <br/>
+           Email:&lt;input type=&quot;text&quot; name=&quot;email&quot; id=&quot;email&quot; onblur=&quot;checkEmail();&quot;/&gt;&lt;span id=&quot;emailinfo&quot;&gt;&lt;/span&gt; <br/>
+      &lt;/div&gt;    <br/>
+      &lt;div&gt; <br/>
+           密码:&lt;input type=&quot;password&quot; name=&quot;password&quot; id=&quot;password&quot; onblur=&quot;checkPassword();&quot;/&gt;&lt;span id=&quot;passwordinfo&quot;&gt;&lt;/span&gt; <br/>
+      &lt;/div&gt; <br/>
+      &lt;div&gt; <br/>
+          重输密码:&lt;input type=&quot;password&quot; name=&quot;repassword&quot; id=&quot;repassword&quot; onblur=&quot;checkRepassword();&quot;/&gt;&lt;span id=&quot;repasswordinfo&quot;&gt;&lt;/span&gt; <br/>
+      &lt;/div&gt; <br/>
+      &lt;div&gt; <br/>
+          姓名：&lt;input type=&quot;text&quot; name=&quot;name&quot; id=&quot;name&quot; onblur=&quot;checkName();&quot;/&gt;&lt;span id=&quot;nameinfo&quot;&gt;&lt;/span&gt; <br/>
+      &lt;/div&gt; <br/>
+      &lt;div&gt; <br/>
+          &lt;input type=&quot;submit&quot; value=&quot;注册&quot; /&gt; <br/>
+      &lt;/div&gt; <br/>
+  &lt;/form&gt; <br/>
+&lt;/body&gt; <br/>
+&lt;/html&gt;</div><p>效果图如下所示：</p></div><div><br/></div><div><img src="61-js进行表单验证实例分析_files/Image [1].gif" type="image/gif"/></div></span>
+</div></body></html> 

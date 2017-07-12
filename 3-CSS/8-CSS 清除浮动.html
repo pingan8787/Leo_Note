@@ -1,0 +1,88 @@
+<html>
+<head>
+  <title>8-CSS 清除浮动</title>
+  <basefont face="微软雅黑" size="2" />
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="exporter-version" content="Evernote Windows/304720 (zh-CN, DDL); Windows/10.0.14393 (Win64);"/>
+  <style>
+    body, td {
+      font-family: 微软雅黑;
+      font-size: 10pt;
+    }
+  </style>
+</head>
+<body>
+<a name="910"/>
+<h1>8-CSS 清除浮动</h1>
+<div>
+<table bgcolor="#D4DDE5" border="0">
+<tr><td><b>创建时间：</b></td><td><i>2017/3/28 星期二 10:30</i></td></tr>
+<tr><td><b>更新时间：</b></td><td><i>2017/3/28 星期二 10:31</i></td></tr>
+<tr><td><b>作者：</b></td><td><i>王平安</i></td></tr>
+</table>
+</div>
+<br/>
+
+<div>
+<span><div><a href="http://www.w3school.com.cn/css/css_positioning_floating.asp">http://www.w3school.com.cn/css/css_positioning_floating.asp</a></div><div><br/></div><div style="margin: 0px 0px 0px 15px; padding: 20px 0px; border-width: 1px 0px; border-top-style: solid; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: rgb(170, 170, 170); border-right-color: initial; border-bottom-color: rgb(170, 170, 170); border-left-color: initial; border-image: initial; width: 710px; color: rgb(0, 0, 0); font-family: Verdana, Arial, 宋体; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(249, 249, 249); text-decoration-style: initial; text-decoration-color: initial;"><p style="margin: 0px; padding: 0px; border: 0px;"><strong style="margin: 0px; padding: 0px; border: 0px; font-family: 微软雅黑; font-size: 14px; color: rgb(0, 0, 0); font-weight: 800;">浮动的框可以向左或向右移动，直到它的外边缘碰到包含框或另一个浮动框的边框为止。</strong></p><p style="margin: 12px 0px 0px; padding: 0px; border: 0px;"><strong style="margin: 0px; padding: 0px; border: 0px; font-family: 微软雅黑; font-size: 14px; color: rgb(0, 0, 0); font-weight: 800;">由于浮动框不在文档的普通流中，所以文档的普通流中的块框表现得就像浮动框不存在一样。</strong></p></div><div style="margin: 0px 0px 0px 15px; padding: 20px 0px; border-width: 1px 0px; border-top-style: solid; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: rgb(170, 170, 170); border-right-color: initial; border-bottom-color: rgb(170, 170, 170); border-left-color: initial; border-image: initial; width: 710px; color: rgb(0, 0, 0); font-family: Verdana, Arial, 宋体; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(249, 249, 249); text-decoration-style: initial; text-decoration-color: initial;"><h2 style="margin: 0px; padding: 0px; border: 0px; font-weight: bold; font-family: 微软雅黑; font-size: 14px;">CSS 浮动</h2><p style="margin: 12px 0px 0px; padding: 0px; border: 0px;">请看下图，当把框 1 向右浮动时，它脱离文档流并且向右移动，直到它的右边缘碰到包含框的右边缘：</p><img src="8-CSS 清除浮动_files/Image.gif" type="image/gif" alt="CSS 浮动实例 - 向右浮动的元素" style="margin: 25px 0px 0px 25px; padding: 0px; border: 0px;"/><p style="margin: 12px 0px 0px; padding: 0px; border: 0px;">再请看下图，当框 1 向左浮动时，它脱离文档流并且向左移动，直到它的左边缘碰到包含框的左边缘。因为它不再处于文档流中，所以它不占据空间，实际上覆盖住了框 2，使框 2 从视图中消失。</p><p style="margin: 12px 0px 0px; padding: 0px; border: 0px;">如果把所有三个框都向左移动，那么框 1 向左浮动直到碰到包含框，另外两个框向左浮动直到碰到前一个浮动框。</p><img src="8-CSS 清除浮动_files/Image [1].gif" type="image/gif" alt="CSS 浮动实例 - 向左浮动的元素" style="margin: 25px 0px 0px 25px; padding: 0px; border: 0px;"/><p style="margin: 12px 0px 0px; padding: 0px; border: 0px;">如下图所示，如果包含框太窄，无法容纳水平排列的三个浮动元素，那么其它浮动块向下移动，直到有足够的空间。如果浮动元素的高度不同，那么当它们向下移动时可能被其它浮动元素“卡住”：</p><img src="8-CSS 清除浮动_files/Image [2].gif" type="image/gif" alt="CSS 浮动实例 2 - 向左浮动的元素" style="margin: 25px 0px 0px 25px; padding: 0px; border: 0px;"/></div><div style="margin: 0px 0px 0px 15px; padding: 20px 0px; border-width: 1px 0px; border-top-style: solid; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: rgb(170, 170, 170); border-right-color: initial; border-bottom-color: rgb(170, 170, 170); border-left-color: initial; border-image: initial; width: 710px; color: rgb(0, 0, 0); font-family: Verdana, Arial, 宋体; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(249, 249, 249); text-decoration-style: initial; text-decoration-color: initial;"><h2 style="margin: 0px; padding: 0px; border: 0px; font-weight: bold; font-family: 微软雅黑; font-size: 14px;">CSS float 属性</h2><p style="margin: 12px 0px 0px; padding: 0px; border: 0px;">在 CSS 中，我们通过 float 属性实现元素的浮动。</p><p style="margin: 12px 0px 0px; padding: 0px; border: 0px;">如需更多有关 float 属性的知识，请访问参考手册：<a href="http://www.w3school.com.cn/cssref/pr_class_float.asp" style="margin: 0px; padding: 0px; border: 0px; text-decoration: underline; color: rgb(144, 11, 9); background: transparent;" title="CSS float 属性">CSS float 属性</a>。</p></div><div style="margin: 0px 0px 0px 15px; padding: 20px 0px; border-width: 1px 0px; border-top-style: solid; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: rgb(170, 170, 170); border-right-color: initial; border-bottom-color: rgb(170, 170, 170); border-left-color: initial; border-image: initial; width: 710px; color: rgb(0, 0, 0); font-family: Verdana, Arial, 宋体; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(249, 249, 249); text-decoration-style: initial; text-decoration-color: initial;"><h2 style="margin: 0px; padding: 0px; border: 0px; font-weight: bold; font-family: 微软雅黑; font-size: 14px;">行框和清理</h2><p style="margin: 12px 0px 0px; padding: 0px; border: 0px;">浮动框旁边的行框被缩短，从而给浮动框留出空间，行框围绕浮动框。</p><p style="margin: 12px 0px 0px; padding: 0px; border: 0px;">因此，创建浮动框可以使文本围绕图像：</p><img src="8-CSS 清除浮动_files/Image [3].gif" type="image/gif" alt="行框围绕浮动框" style="margin: 25px 0px 0px 25px; padding: 0px; border: 0px;"/><p style="margin: 12px 0px 0px; padding: 0px; border: 0px;">要想阻止行框围绕浮动框，需要对该框应用 <a href="http://www.w3school.com.cn/cssref/pr_class_clear.asp" style="margin: 0px; padding: 0px; border: 0px; text-decoration: underline; color: rgb(144, 11, 9); background: transparent;" title="CSS clear 属性">clear 属性</a>。clear 属性的值可以是 left、right、both 或 none，它表示框的哪些边不应该挨着浮动框。</p><p style="margin: 12px 0px 0px; padding: 0px; border: 0px;">为了实现这种效果，在被清理的元素的<em style="margin: 0px; padding: 0px; border: 0px; font-weight: bold; font-style: normal;">上外边距</em>上添加足够的空间，使元素的顶边缘垂直下降到浮动框下面：</p><img src="8-CSS 清除浮动_files/Image [4].gif" type="image/gif" alt="clear 属性实例 - 对行框应用 clear" style="margin: 25px 0px 0px 25px; padding: 0px; border: 0px;"/><p style="margin: 12px 0px 0px; padding: 0px; border: 0px;">这是一个有用的工具，它让周围的元素为浮动元素留出空间。</p><p style="margin: 12px 0px 0px; padding: 0px; border: 0px;">让我们更详细地看看浮动和清理。假设希望让一个图片浮动到文本块的左边，并且希望这幅图片和文本包含在另一个具有背景颜色和边框的元素中。您可能编写下面的代码：</p><pre style="margin: 10px 0px 0px; padding: 10px; border: 1px dotted rgb(119, 136, 85); font-family: Consolas, &quot;Courier New&quot;, Courier, monospace; width: 685px; background: rgb(245, 245, 245);">
+.news {
+  background-color: gray;
+  border: solid 1px black;
+  }
+
+.news img {
+  float: left;
+  }
+
+.news p {
+  float: right;
+  }
+
+&lt;div class=&quot;news&quot;&gt;
+&lt;img src=&quot;news-pic.jpg&quot; /&gt;
+&lt;p&gt;some text&lt;/p&gt;
+&lt;/div&gt;
+</pre><p style="margin: 12px 0px 0px; padding: 0px; border: 0px;">这种情况下，出现了一个问题。因为浮动元素脱离了文档流，所以包围图片和文本的 div 不占据空间。</p><p style="margin: 12px 0px 0px; padding: 0px; border: 0px;">如何让包围元素在视觉上包围浮动元素呢？需要在这个元素中的某个地方应用 clear：</p><img src="8-CSS 清除浮动_files/Image [5].gif" type="image/gif" alt="clear 属性实例 - 对空元素应用清理" style="margin: 25px 0px 0px 25px; padding: 0px; border: 0px;"/><p style="margin: 12px 0px 0px; padding: 0px; border: 0px;">不幸的是出现了一个新的问题，由于没有现有的元素可以应用清理，所以我们只能添加一个空元素并且清理它。</p><pre style="margin: 10px 0px 0px; padding: 10px; border: 1px dotted rgb(119, 136, 85); font-family: Consolas, &quot;Courier New&quot;, Courier, monospace; width: 685px; background: rgb(245, 245, 245);">
+.news {
+  background-color: gray;
+  border: solid 1px black;
+  }
+
+.news img {
+  float: left;
+  }
+
+.news p {
+  float: right;
+  }
+
+<code style="margin: 0px; padding: 0px; border: 0px; font-family: Consolas, &quot;Courier New&quot;, Courier, monospace; color: rgb(0, 0, 221);">.clear {
+  clear: both;
+  }</code>
+
+&lt;div class=&quot;news&quot;&gt;
+&lt;img src=&quot;news-pic.jpg&quot; /&gt;
+&lt;p&gt;some text&lt;/p&gt;
+<code style="margin: 0px; padding: 0px; border: 0px; font-family: Consolas, &quot;Courier New&quot;, Courier, monospace; color: rgb(0, 0, 221);">&lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;</code>
+&lt;/div&gt;
+</pre><p style="margin: 12px 0px 0px; padding: 0px; border: 0px;">这样可以实现我们希望的效果，但是需要添加多余的代码。常常有元素可以应用 clear，但是有时候不得不为了进行布局而添加无意义的标记。</p><p style="margin: 12px 0px 0px; padding: 0px; border: 0px;">不过我们还有另一种办法，那就是对容器 div 进行浮动：</p><pre style="margin: 10px 0px 0px; padding: 10px; border: 1px dotted rgb(119, 136, 85); font-family: Consolas, &quot;Courier New&quot;, Courier, monospace; width: 685px; background: rgb(245, 245, 245);">
+.news {
+  background-color: gray;
+  border: solid 1px black;
+  <code style="margin: 0px; padding: 0px; border: 0px; font-family: Consolas, &quot;Courier New&quot;, Courier, monospace; color: rgb(0, 0, 221);">float: left;</code>
+  }
+
+.news img {
+  float: left;
+  }
+
+.news p {
+  float: right;
+  }
+
+&lt;div class=&quot;news&quot;&gt;
+&lt;img src=&quot;news-pic.jpg&quot; /&gt;
+&lt;p&gt;some text&lt;/p&gt;
+&lt;/div&gt;
+</pre><p style="margin: 12px 0px 0px; padding: 0px; border: 0px;">这样会得到我们希望的效果。不幸的是，下一个元素会受到这个浮动元素的影响。为了解决这个问题，有些人选择对布局中的所有东西进行浮动，然后使用适当的有意义的元素（常常是站点的页脚）对这些浮动进行清理。这有助于减少或消除不必要的标记。</p><p style="margin: 12px 0px 0px; padding: 0px; border: 0px;">事实上，W3School 站点上的所有页面都采用了这种技术，如果您打开我们使用 CSS 文件，您会看到我们对页脚的 div 进行了清理，而页脚上面的三个 div 都向左浮动。</p></div><div style="margin: 0px 0px 0px 15px; padding: 20px 0px; border-width: 1px 0px; border-top-style: solid; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: rgb(170, 170, 170); border-right-color: initial; border-bottom-color: rgb(170, 170, 170); border-left-color: initial; border-image: initial; width: 710px; color: rgb(0, 0, 0); font-family: Verdana, Arial, 宋体; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(249, 249, 249); text-decoration-style: initial; text-decoration-color: initial;"><h2 style="margin: 0px; padding: 0px; border: 0px; font-weight: bold; font-family: 微软雅黑; font-size: 14px;">CSS clear 属性</h2><p style="margin: 12px 0px 0px; padding: 0px; border: 0px;">我们刚才详细讨论了 CSS 清理的工作原理和 clear 属性应用方法。如果您希望学习更多有关 clear 属性的知识，请访问参考手册：<a href="http://www.w3school.com.cn/cssref/pr_class_clear.asp" style="margin: 0px; padding: 0px; border: 0px; text-decoration: underline; color: rgb(144, 11, 9); background: transparent;" title="CSS clear 属性">CSS clear 属性</a>。</p></div><div style="margin: 0px 0px 0px 15px; padding: 20px 0px; border-width: 1px 0px; border-top-style: solid; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: rgb(170, 170, 170); border-right-color: initial; border-bottom-color: rgb(170, 170, 170); border-left-color: initial; border-image: initial; width: 710px; color: rgb(0, 0, 0); font-family: Verdana, Arial, 宋体; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(249, 249, 249); text-decoration-style: initial; text-decoration-color: initial;"><h2 style="margin: 0px; padding: 0px; border: 0px; font-weight: bold; font-family: 微软雅黑; font-size: 14px;">浮动和清理 实例</h2><div style="margin: 10px 0px 0px; padding: 0px; border: 0px;"><div style="margin: 15px 0px 5px; padding: 0px; border: 0px;"><a href="http://www.w3school.com.cn/tiy/t.asp?f=csse_float" style="margin: 0px; padding: 0px; border: 0px; text-decoration: underline; color: rgb(144, 11, 9); background: transparent;" target="_blank">float 属性的简单应用</a><br/><br/></div><div style="margin: 0px; padding: 0px; border: 0px;margin-left:40px;">使图像浮动于一个段落的右侧。</div><div style="margin: 15px 0px 5px; padding: 0px; border: 0px;"><a href="http://www.w3school.com.cn/tiy/t.asp?f=csse_float2" style="margin: 0px; padding: 0px; border: 0px; text-decoration: underline; color: rgb(144, 11, 9); background: transparent;" target="_blank">将带有边框和边界的图像浮动于段落的右侧</a><br/><br/></div><div style="margin: 0px; padding: 0px; border: 0px;margin-left:40px;">使图像浮动于段落的右侧。向图像添加边框和边界。</div><div style="margin: 15px 0px 5px; padding: 0px; border: 0px;"><a href="http://www.w3school.com.cn/tiy/t.asp?f=csse_float3" style="margin: 0px; padding: 0px; border: 0px; text-decoration: underline; color: rgb(144, 11, 9); background: transparent;" target="_blank">带标题的图像浮动于右侧</a><br/><br/></div><div style="margin: 0px; padding: 0px; border: 0px;margin-left:40px;">使带有标题的图像浮动于右侧</div><div style="margin: 15px 0px 5px; padding: 0px; border: 0px;"><a href="http://www.w3school.com.cn/tiy/t.asp?f=csse_float4" style="margin: 0px; padding: 0px; border: 0px; text-decoration: underline; color: rgb(144, 11, 9); background: transparent;" target="_blank">使段落的首字母浮动于左侧</a><br/><br/></div><div style="margin: 0px; padding: 0px; border: 0px;margin-left:40px;">使段落的首字母浮动于左侧，并向这个字母添加样式。</div><div style="margin: 15px 0px 5px; padding: 0px; border: 0px;"><a href="http://www.w3school.com.cn/tiy/t.asp?f=csse_float5" style="margin: 0px; padding: 0px; border: 0px; text-decoration: underline; color: rgb(144, 11, 9); background: transparent;" target="_blank">创建水平菜单</a><br/><br/></div><div style="margin: 0px; padding: 0px; border: 0px;margin-left:40px;">使用具有一栏超链接的浮动来创建水平菜单。</div><div style="margin: 15px 0px 5px; padding: 0px; border: 0px;"><a href="http://www.w3school.com.cn/tiy/t.asp?f=csse_float6" style="margin: 0px; padding: 0px; border: 0px; text-decoration: underline; color: rgb(144, 11, 9); background: transparent;" target="_blank">创建无表格的首页</a><br/><br/></div><div style="margin: 0px; padding: 0px; border: 0px;margin-left:40px;">使用浮动来创建拥有页眉、页脚、左侧目录和主体内容的首页。</div><div style="margin: 15px 0px 5px; padding: 0px; border: 0px;"><a href="http://www.w3school.com.cn/tiy/t.asp?f=csse_class-clear" style="margin: 0px; padding: 0px; border: 0px; text-decoration: underline; color: rgb(144, 11, 9); background: transparent;" target="_blank">清除元素的侧面</a><br/><br/></div><div style="margin: 0px; padding: 0px; border: 0px;margin-left:40px;">本例演示如何使用清除元素侧面的浮动元素。</div></div></div></span>
+</div></body></html> 

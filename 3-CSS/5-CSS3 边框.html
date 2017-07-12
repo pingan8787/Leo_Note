@@ -1,0 +1,48 @@
+<html>
+<head>
+  <title>5-CSS3 边框</title>
+  <basefont face="微软雅黑" size="2" />
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="exporter-version" content="Evernote Windows/304720 (zh-CN, DDL); Windows/10.0.14393 (Win64);"/>
+  <style>
+    body, td {
+      font-family: 微软雅黑;
+      font-size: 10pt;
+    }
+  </style>
+</head>
+<body>
+<a name="1420"/>
+<h1>5-CSS3 边框</h1>
+<div>
+<table bgcolor="#D4DDE5" border="0">
+<tr><td><b>创建时间：</b></td><td><i>2017/3/10 星期五 10:09</i></td></tr>
+<tr><td><b>更新时间：</b></td><td><i>2017/3/21 星期二 15:27</i></td></tr>
+<tr><td><b>作者：</b></td><td><i>王平安</i></td></tr>
+</table>
+</div>
+<br/>
+
+<div>
+<span><div><h2>CSS3 边框</h2><p>通过 CSS3，您能够创建圆角边框，向矩形添加阴影，使用图片来绘制边框 - 并且不需使用设计软件，比如 PhotoShop。</p><p>在本章中，您将学到以下边框属性：</p><ul><li>border-radius</li><li>box-shadow</li><li>border-image</li></ul></div><div><h2>浏览器支持</h2><table><tbody><tr><th>属性</th><th colspan="5">浏览器支持</th></tr><tr><td>border-radius</td><td><br/></td><td><br/></td><td><br/></td><td><br/></td><td><br/></td></tr><tr><td>box-shadow</td><td><br/></td><td><br/></td><td><br/></td><td><br/></td><td><br/></td></tr><tr><td>border-image</td><td><br/></td><td><br/></td><td><br/></td><td><br/></td><td><br/></td></tr></tbody></table><p>Internet Explorer 9+ 支持 border-radius 和 box-shadow 属性。</p><p>Firefox、Chrome 以及 Safari 支持所有新的边框属性。</p><p>注释：对于 border-image，Safari 5 以及更老的版本需要前缀 -webkit-。</p><p>Opera 支持 border-radius 和 box-shadow 属性，但是对于 border-image 需要前缀 -o-。</p></div><div><h2>CSS3 圆角边框</h2><p>在 CSS2 中添加圆角矩形需要技巧。我们必须为每个圆角使用不同的图片。</p><p>在 CSS3 中，创建圆角是非常容易的。</p><p>在 CSS3 中，border-radius 属性用于创建圆角：</p><p>这个矩形有圆角哦！</p><h3>实例</h3><p>向 div 元素添加圆角：</p><pre>
+div
+{
+border:2px solid;
+border-radius:25px;
+-moz-border-radius:25px; /* Old Firefox */
+}
+</pre><p><a href="http://www.w3school.com.cn/tiy/t.asp?f=css3_border-radius" target="_blank">亲自试一试</a></p></div><div><h2>CSS3 边框阴影</h2><p>在 CSS3 中，box-shadow 用于向方框添加阴影：</p><h3>实例</h3><p>向 div 元素添加方框阴影：</p><pre>
+div
+{
+box-shadow: 10px 10px 5px #888888;
+}
+</pre><p><a href="http://www.w3school.com.cn/tiy/t.asp?f=css3_box-shadow" target="_blank">亲自试一试</a></p></div><div><h2>CSS3 边框图片</h2><p>通过 CSS3 的 border-image 属性，您可以使用图片来创建边框：</p><p>border-image 属性允许您规定用于边框的图片！</p><p>用于创建上面的边框的原始图片：</p><img src="5-CSS3 边框_files/Image.png" type="image/png" alt="用于边框的图片" style="height: auto;"/><h3>实例</h3><p>使用图片创建围绕 div 元素的边框：</p><pre>
+div
+{
+border-image:url(border.png) 30 30 round;
+-moz-border-image:url(border.png) 30 30 round; /* 老的 Firefox */
+-webkit-border-image:url(border.png) 30 30 round; /* Safari 和 Chrome */
+-o-border-image:url(border.png) 30 30 round; /* Opera */
+}
+</pre><p><a href="http://www.w3school.com.cn/tiy/t.asp?f=css3_border-image" target="_blank">亲自试一试</a></p></div><div><br/></div><div style="font-weight: bold; font-size: 20px;">新的边框属性</div><table><tr><td><div><b>属性</b></div></td><th>描述</th><th>CSS</th></tr><tr><td><a href="http://www.w3school.com.cn/cssref/pr_border-image.asp" title="CSS3 border-image 属性">border-image</a></td><td>设置所有 border-image-* 属性的简写属性。</td><td>3</td></tr><tr><td><a href="http://www.w3school.com.cn/cssref/pr_border-radius.asp" title="CSS3 border-radius 属性">border-radius</a></td><td>设置所有四个 border-*-radius 属性的简写属性。</td><td>3</td></tr><tr><td><a href="http://www.w3school.com.cn/cssref/pr_box-shadow.asp" title="CSS3 box-shadow 属性">box-shadow</a></td><td>向方框添加一个或多个阴影。</td><td>3</td></tr></table><div><br/></div><div><br/></div><div><br/></div><div><br/></div><div><p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;"><strong>box-shadow属性的参数设置取值：</strong></p><p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">阴影类型：此参数可选。如不设值，默认投影方式是外阴影；如取其唯一值“inset”，其投影为内阴影；</p><p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">X-offset:阴影水平偏移量，其值可以是正负值。如果值为正值，则阴影在对象的右边，其值为负值时，阴影在对象的左边；</p><p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">Y-offset:阴影垂直偏移量，其值也可以是正负值。如果为正值，阴影在对象的底部，其值为负值时，阴影在对象的顶部；</p><p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">阴影模糊半径：此参数可选，，但其值只能是为正值，如果其值为0时，表示阴影不具有模糊效果，其值越大阴影的边缘就越模糊；</p><p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">阴影扩展半径：此参数可选，其值可以是正负值，如果值为正，则整个阴影都延展扩大，反之值为负值时，则缩小；</p><p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">阴影颜色：此参数可选。如不设定颜色，浏览器会取默认色，但各浏览器默认取色不一致，特别是在webkit内核下的safari和chrome浏览器下表现为透明色，在Firefox/Opera下表现为黑色（已验证），建议不要省略此参数。</p><p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">浏览器的兼容：</p><p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;"></p></div><div><br/></div><div align="center" style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; font-style: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);"><div> <img src="http://my.csdn.net/uploads/201205/28/1338202092_2361.jpg" style="border: none; max-width: 100%;"></img></div></div></span>
+</div></body></html> 

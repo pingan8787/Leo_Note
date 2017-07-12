@@ -1,0 +1,91 @@
+<html>
+<head>
+  <title>三种方法让你的图片完美居中</title>
+  <basefont face="微软雅黑" size="2" />
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="exporter-version" content="Evernote Windows/304720 (zh-CN, DDL); Windows/10.0.14393 (Win64);"/>
+  <style>
+    body, td {
+      font-family: 微软雅黑;
+      font-size: 10pt;
+    }
+  </style>
+</head>
+<body>
+<a name="1541"/>
+<h1>三种方法让你的图片完美居中</h1>
+<div>
+<table bgcolor="#D4DDE5" border="0">
+<tr><td><b>创建时间：</b></td><td><i>2016/11/15 星期二 15:53</i></td></tr>
+<tr><td><b>更新时间：</b></td><td><i>2017/2/10 星期五 10:45</i></td></tr>
+<tr><td><b>标签：</b></td><td><i>图片居中, 知乎收藏</i></td></tr>
+</table>
+</div>
+<br/>
+
+<div>
+<span><div><font color="rgb(255,0,0)" face="arial, verdana, &quot;Microsoft YaHei&quot;, Tahoma, Simsun, sans-serif"><span style="text-transform: none; text-indent: 0px; letter-spacing: normal; font-size: x-large; font-style: normal; font-weight: normal; word-spacing: 0px; float: none; display: inline !important; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px;">一，table-cell + vertical-align: middle</span></font></div><div><font color="rgb(255,0,0)" face="arial, verdana, &quot;Microsoft YaHei&quot;, Tahoma, Simsun, sans-serif"><span style="text-transform: none; text-indent: 0px; letter-spacing: normal; font-size: x-large; font-style: normal; font-weight: normal; word-spacing: 0px; float: none; display: inline !important; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px;"><font color="#000000" size="4">&lt;!DOCTYPE html&gt;<br/>
+&lt;html lang=&quot;zh-cn&quot;&gt;<br/>
+&lt;head&gt;<br/>
+ &lt;meta charset=&quot;UTF-8&quot;&gt;<br/>
+ &lt;title&gt;Document&lt;/title&gt;<br/>
+ &lt;style&gt;<br/>
+  #parent{<br/>
+   display: table-cell;<br/>
+   width: 200px;<br/>
+   height: 200px;<br/>
+   border: 1px solid black;<br/>
+  <strong><u> vertical-align: middle;</u></strong><br/>
+   text-align: center;<br/>
+  }<br/>
+ &lt;/style&gt;<br/>
+&lt;/head&gt;<br/>
+&lt;body&gt;<br/>
+ &lt;div id=&quot;parent&quot;&gt;<br/>
+  &lt;img src=&quot;echo.jpg&quot; alt=&quot;小付&quot;/&gt;<br/>
+ &lt;/div&gt;<br/>
+&lt;/body&gt;<br/>
+&lt;/html&gt;</font></span></font></div><div><font color="rgb(255,0,0)" face="arial, verdana, &quot;Microsoft YaHei&quot;, Tahoma, Simsun, sans-serif"><span style="text-transform: none; text-indent: 0px; letter-spacing: normal; font-size: x-large; font-style: normal; font-weight: normal; word-spacing: 0px; float: none; display: inline !important; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px;"><font size="4"><br/></font></span></font></div><div><font color="rgb(255,0,0)" face="arial, verdana, &quot;Microsoft YaHei&quot;, Tahoma, Simsun, sans-serif"><span style="text-transform: none; text-indent: 0px; letter-spacing: normal; font-size: x-large; font-style: normal; font-weight: normal; word-spacing: 0px; float: none; display: inline !important; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px;"><font color="rgb(255,0,0)" size="4"><span style="text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: arial, verdana, &quot;Microsoft YaHei&quot;, Tahoma, Simsun, sans-serif; font-size: x-large; font-style: normal; font-weight: normal; word-spacing: 0px; float: none; display: inline !important; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px;">二，position定位</span></font></span></font></div><div><font color="rgb(255,0,0)" face="arial, verdana, &quot;Microsoft YaHei&quot;, Tahoma, Simsun, sans-serif"><span style="text-transform: none; text-indent: 0px; letter-spacing: normal; font-size: x-large; font-style: normal; font-weight: normal; word-spacing: 0px; float: none; display: inline !important; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px;"><font color="rgb(255,0,0)" size="4"><span style="text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: arial, verdana, &quot;Microsoft YaHei&quot;, Tahoma, Simsun, sans-serif; font-size: x-large; font-style: normal; font-weight: normal; word-spacing: 0px; float: none; display: inline !important; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px;"><font color="#000000"><font size="4">&lt;!DOCTYPE html&gt;<br/>
+&lt;html lang=&quot;zh-cn&quot;&gt;<br/>
+&lt;head&gt;<br/>
+ &lt;meta charset=&quot;UTF-8&quot;&gt;<br/>
+ &lt;title&gt;Document&lt;/title&gt;<br/>
+ &lt;style&gt;<br/>
+  #parent{<br/>
+   position: relative;<br/>
+   width: 200px;<br/>
+   height: 200px;<br/>
+   border: 1px solid black;<br/>
+  }</font><br/></font><font size="4"><font color="#000000">  img{<br/></font><font color="#000000"><strong><u>   position: absolute;<br/>
+   left: 50%;<br/>
+   top: 50%;</u></strong><br/>
+   transform: translate(-50%,-50%);<br/>
+  }</font></font><br/><font color="#000000" size="4"> &lt;/style&gt;<br/>
+&lt;/head&gt;<br/>
+&lt;body&gt;<br/>
+ &lt;div id=&quot;parent&quot;&gt;<br/>
+  &lt;img src=&quot;echo.jpg&quot; alt=&quot;小付&quot;/&gt;<br/>
+ &lt;/div&gt;<br/>
+&lt;/body&gt;<br/>
+&lt;/html&gt;</font></span></font></span></font></div><div><font color="rgb(255,0,0)" face="arial, verdana, &quot;Microsoft YaHei&quot;, Tahoma, Simsun, sans-serif"><span style="text-transform: none; text-indent: 0px; letter-spacing: normal; font-size: x-large; font-style: normal; font-weight: normal; word-spacing: 0px; float: none; display: inline !important; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px;"><font color="rgb(255,0,0)" size="4"><span style="text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: arial, verdana, &quot;Microsoft YaHei&quot;, Tahoma, Simsun, sans-serif; font-size: x-large; font-style: normal; font-weight: normal; word-spacing: 0px; float: none; display: inline !important; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px;"><br/></span></font></span></font></div><div><font color="rgb(255,0,0)" face="arial, verdana, &quot;Microsoft YaHei&quot;, Tahoma, Simsun, sans-serif"><span style="text-transform: none; text-indent: 0px; letter-spacing: normal; font-size: x-large; font-style: normal; font-weight: normal; word-spacing: 0px; float: none; display: inline !important; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px;"><font color="rgb(255,0,0)" size="4"><span style="text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: arial, verdana, &quot;Microsoft YaHei&quot;, Tahoma, Simsun, sans-serif; font-size: x-large; font-style: normal; font-weight: normal; word-spacing: 0px; float: none; display: inline !important; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px;"><font color="rgb(255,0,0)" face="arial, verdana, &quot;Microsoft YaHei&quot;, Tahoma, Simsun, sans-serif"><span style="text-transform: none; text-indent: 0px; letter-spacing: normal; font-size: x-large; font-style: normal; font-weight: normal; word-spacing: 0px; float: none; display: inline !important; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px;">三，flex弹性盒模型</span></font></span></font></span></font></div><div><font color="rgb(255,0,0)" face="arial, verdana, &quot;Microsoft YaHei&quot;, Tahoma, Simsun, sans-serif"><span style="text-transform: none; text-indent: 0px; letter-spacing: normal; font-size: x-large; font-style: normal; font-weight: normal; word-spacing: 0px; float: none; display: inline !important; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px;"><font color="rgb(255,0,0)" size="4"><span style="text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: arial, verdana, &quot;Microsoft YaHei&quot;, Tahoma, Simsun, sans-serif; font-size: x-large; font-style: normal; font-weight: normal; word-spacing: 0px; float: none; display: inline !important; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px;"><font color="rgb(255,0,0)" face="arial, verdana, &quot;Microsoft YaHei&quot;, Tahoma, Simsun, sans-serif"><span style="text-transform: none; text-indent: 0px; letter-spacing: normal; font-size: x-large; font-style: normal; font-weight: normal; word-spacing: 0px; float: none; display: inline !important; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px;"><font color="#000000"><font size="4">&lt;!DOCTYPE html&gt;<br/>
+&lt;html lang=&quot;zh-cn&quot;&gt;<br/>
+&lt;head&gt;<br/>
+ &lt;meta charset=&quot;UTF-8&quot;&gt;<br/>
+ &lt;title&gt;Document&lt;/title&gt;<br/>
+ &lt;style&gt;<br/>
+  #parent{<br/>
+   width: 200px;<br/>
+   height: 200px;<br/>
+   border: 1px solid black;<br/>
+   justify-content: center;<br/>
+   align-items: center;<br/>
+   display: flex;<br/>
+  }</font><br/></font><font color="#000000" size="4"> &lt;/style&gt;<br/>
+&lt;/head&gt;<br/>
+&lt;body&gt;<br/>
+ &lt;div id=&quot;parent&quot;&gt;<br/>
+  &lt;img src=&quot;echo.jpg&quot; alt=&quot;小付&quot;/&gt;<br/>
+ &lt;/div&gt;<br/>
+&lt;/body&gt;<br/>
+&lt;/html&gt;</font></span></font></span></font></span></font></div><div><font color="rgb(255,0,0)" face="arial, verdana, &quot;Microsoft YaHei&quot;, Tahoma, Simsun, sans-serif"><span style="text-transform: none; text-indent: 0px; letter-spacing: normal; font-size: x-large; font-style: normal; font-weight: normal; word-spacing: 0px; float: none; display: inline !important; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px;"><font color="rgb(255,0,0)" size="4"><span style="text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: arial, verdana, &quot;Microsoft YaHei&quot;, Tahoma, Simsun, sans-serif; font-size: x-large; font-style: normal; font-weight: normal; word-spacing: 0px; float: none; display: inline !important; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px;"><font color="#000000" face="arial, verdana, &quot;Microsoft YaHei&quot;, Tahoma, Simsun, sans-serif" size="4"><span style="text-transform: none; text-indent: 0px; letter-spacing: normal; font-size: x-large; font-style: normal; font-weight: normal; word-spacing: 0px; float: none; display: inline !important; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px;"><br/></span></font></span></font></span></font></div><div><font color="rgb(255,0,0)" face="arial, verdana, &quot;Microsoft YaHei&quot;, Tahoma, Simsun, sans-serif"><span style="text-transform: none; text-indent: 0px; letter-spacing: normal; font-size: x-large; font-style: normal; font-weight: normal; word-spacing: 0px; float: none; display: inline !important; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px;"><font color="rgb(255,0,0)" size="4"><span style="text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: arial, verdana, &quot;Microsoft YaHei&quot;, Tahoma, Simsun, sans-serif; font-size: x-large; font-style: normal; font-weight: normal; word-spacing: 0px; float: none; display: inline !important; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px;"><font color="#000000" face="arial, verdana, &quot;Microsoft YaHei&quot;, Tahoma, Simsun, sans-serif" size="4"><span style="text-transform: none; text-indent: 0px; letter-spacing: normal; font-size: x-large; font-style: normal; font-weight: normal; word-spacing: 0px; float: none; display: inline !important; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px;"><span style="color: rgb(112, 48, 160); text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: arial, verdana, &quot;Microsoft YaHei&quot;, Tahoma, Simsun, sans-serif; font-size: large; font-style: normal; font-weight: normal; word-spacing: 0px; float: none; display: inline !important; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px;">注：1.这三种方法可以用于子元素为行内元素和块状元素；</span><br style="color: rgb(112, 48, 160); text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: arial, verdana, &quot;Microsoft YaHei&quot;, Tahoma, Simsun, sans-serif; font-size: large; font-style: normal; font-weight: normal; word-spacing: 0px; white-space: normal; -ms-word-wrap: break-word; box-sizing: border-box; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px;"/><span style="color: rgb(112, 48, 160); text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: arial, verdana, &quot;Microsoft YaHei&quot;, Tahoma, Simsun, sans-serif; font-size: large; font-style: normal; font-weight: normal; word-spacing: 0px; float: none; display: inline !important; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px;">       2.建议使用第二种，简单，好用，重要的还是看你的具体情况；</span><br style="color: rgb(112, 48, 160); text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: arial, verdana, &quot;Microsoft YaHei&quot;, Tahoma, Simsun, sans-serif; font-size: large; font-style: normal; font-weight: normal; word-spacing: 0px; white-space: normal; -ms-word-wrap: break-word; box-sizing: border-box; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px;"/><span style="color: rgb(112, 48, 160); text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: arial, verdana, &quot;Microsoft YaHei&quot;, Tahoma, Simsun, sans-serif; font-size: large; font-style: normal; font-weight: normal; word-spacing: 0px; float: none; display: inline !important; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px;">       3.最重要的一点：图片无法显示，我也没办法，</span><img src="三种方法让你的图片完美居中_files/Image.png" type="image/png" alt="emoticon" style="border: 0px currentcolor; border-image-source: none; width: 24px; height: auto; color: rgb(112, 48, 160); text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: arial, verdana, 'Microsoft YaHei', Tahoma, Simsun, sans-serif; font-size: large; font-style: normal; font-weight: normal; word-spacing: 0px; vertical-align: top; display: inline; white-space: normal; max-width: 100%; box-sizing: border-box; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); -webkit-text-stroke-width: 0px;"/><span style="color: rgb(112, 48, 160); text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: arial, verdana, &quot;Microsoft YaHei&quot;, Tahoma, Simsun, sans-serif; font-size: large; font-style: normal; font-weight: normal; word-spacing: 0px; float: none; display: inline !important; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px;"> ；</span></span></font></span></font></span></font></div></span>
+</div></body></html> 

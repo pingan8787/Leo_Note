@@ -1,0 +1,77 @@
+<html>
+<head>
+  <title>38 - js跳转页面方法（转）</title>
+  <basefont face="微软雅黑" size="2" />
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="exporter-version" content="Evernote Windows/304720 (zh-CN, DDL); Windows/10.0.14393 (Win64);"/>
+  <style>
+    body, td {
+      font-family: 微软雅黑;
+      font-size: 10pt;
+    }
+  </style>
+</head>
+<body>
+<a name="617"/>
+<h1>38 - js跳转页面方法（转）</h1>
+<div>
+<table bgcolor="#D4DDE5" border="0">
+<tr><td><b>创建时间：</b></td><td><i>2017/4/18 星期二 10:17</i></td></tr>
+<tr><td><b>更新时间：</b></td><td><i>2017/4/18 星期二 10:17</i></td></tr>
+<tr><td><b>作者：</b></td><td><i>王平安</i></td></tr>
+</table>
+</div>
+<br/>
+
+<div>
+<span><div style="box-sizing: border-box; font-size: 14.7px; font-weight: bold; margin-bottom: 10px; color: rgb(75, 75, 75); font-family: Verdana, Arial, Helvetica, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;"><h1 style="margin: 10px 0px; font-size: 14.7px; color: rgb(102, 102, 102); text-align: left; box-sizing: border-box; font-weight: bold;"><a href="http://www.cnblogs.com/YSO1983/archive/2010/04/06/1705169.html" style="box-sizing: border-box; text-decoration: none; color: rgb(52, 104, 164);">js跳转页面方法（转）</a></h1></div><div style="box-sizing: border-box; margin-bottom: 20px; word-break: break-word; color: rgb(75, 75, 75); font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;"><p style="box-sizing: border-box; margin: 10px auto; text-indent: 0px;">&lt;span id=&quot;tiao&quot;&gt;3&lt;/span&gt;&lt;a href=&quot;javascript:countDown&quot;&gt;&lt;/a&gt;布丁足迹;秒后自动跳转……&lt;meta http-equiv=refresh content=3;url='/search/billsearch.jsp'&lt;/ul&gt;</p><p style="box-sizing: border-box; margin: 10px auto; text-indent: 0px;">&lt;!--脚本开始--&gt;<br style="box-sizing: border-box;"/>
+&lt;script language=&quot;javascript&quot; type=&quot;&quot;&gt;<br style="box-sizing: border-box;"/>
+function countDown(secs){<br style="box-sizing: border-box;"/>
+  tiao.innerText=secs;<br style="box-sizing: border-box;"/>
+  if(--secs&gt;0)<br style="box-sizing: border-box;"/>
+   setTimeout(&quot;countDown(&quot;+secs+&quot;)&quot;,1000);<br style="box-sizing: border-box;"/>
+  }<br style="box-sizing: border-box;"/>
+  countDown(3);<br style="box-sizing: border-box;"/>
+&lt;/script&gt;<br style="box-sizing: border-box;"/>
+&lt;!--脚本结束--&gt;<br style="box-sizing: border-box;"/>
+ </p><p style="box-sizing: border-box; margin: 10px auto; text-indent: 0px;"><span style="box-sizing: border-box; color: red;">　　按钮式：</span></p><p style="box-sizing: border-box; margin: 10px auto; text-indent: 0px;">　　&lt;INPUT name=&quot;pclog&quot; type=&quot;button&quot; value=&quot;GO&quot; onClick=&quot;location.href='http://www.ddhbb.com/'&quot;&gt;</p><p style="box-sizing: border-box; margin: 10px auto; text-indent: 0px;">　　<span style="box-sizing: border-box; color: red;">链接式：</span></p><p style="box-sizing: border-box; margin: 10px auto; text-indent: 0px;">　　&lt;a href=&quot;javascript:history.go(-1)&quot;&gt;返回上一步&lt;/a&gt;</p><p style="box-sizing: border-box; margin: 10px auto; text-indent: 0px;">　　&lt;a href=&quot;&lt;%=Request.ServerVariables(&quot;HTTP_REFERER&quot;)%&gt;&quot;&gt;返回上一步&lt;/a&gt;</p><p style="box-sizing: border-box; margin: 10px auto; text-indent: 0px;">　　<span style="box-sizing: border-box; color: red;">直接跳转式：</span></p><p style="box-sizing: border-box; margin: 10px auto; text-indent: 0px;">　　&lt;script&gt;window.location.href='http://www.ddhbb.com';&lt;/script&gt;</p><p style="box-sizing: border-box; margin: 10px auto; text-indent: 0px;">　　<span style="box-sizing: border-box; color: red;">开新窗口：</span></p><p style="box-sizing: border-box; margin: 10px auto; text-indent: 0px;">　　&lt;a href=&quot;javascript:&quot; onClick=&quot;window.open('http://www.ddhbb.com/blog/guestbook.asp','','height=500,width=611,scrollbars=yes,status=yes')&quot;&gt;布丁　　　　　　　　　　足迹&lt;/a&gt;</p><p style="box-sizing: border-box; margin: 10px auto; text-indent: 0px;">  <strong style="box-sizing: border-box;"><span style="box-sizing: border-box; color: rgb(0, 0, 0);">JS跳转页面参考代码</span><br style="box-sizing: border-box;"/></strong>第一种：<br style="box-sizing: border-box;"/>
+&lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;&gt;<br style="box-sizing: border-box;"/>
+window.location.href=&quot;login.jsp?backurl=&quot;+window.location.href;<br style="box-sizing: border-box;"/>
+&lt;/script&gt;<br style="box-sizing: border-box;"/>
+第二种：<br style="box-sizing: border-box;"/>
+&lt;script language=&quot;javascript&quot;&gt;<br style="box-sizing: border-box;"/>
+alert(&quot;返回&quot;);<br style="box-sizing: border-box;"/>
+window.history.back(-1);<br style="box-sizing: border-box;"/>
+&lt;/script&gt;<br style="box-sizing: border-box;"/>
+第三种：<br style="box-sizing: border-box;"/>
+&lt;script language=&quot;javascript&quot;&gt;<br style="box-sizing: border-box;"/>
+window.navigate(&quot;top.jsp&quot;);<br style="box-sizing: border-box;"/>
+&lt;/script&gt;<br style="box-sizing: border-box;"/>
+第四种：<br style="box-sizing: border-box;"/>
+&lt;script language=&quot;JavaScript&quot;&gt;<br style="box-sizing: border-box;"/>
+self.location=’top.htm’;<br style="box-sizing: border-box;"/>
+&lt;/script&gt;<br style="box-sizing: border-box;"/>
+第五种：<br style="box-sizing: border-box;"/>
+&lt;script language=&quot;javascript&quot;&gt;<br style="box-sizing: border-box;"/>
+alert(&quot;非法访问！&quot;);<br style="box-sizing: border-box;"/>
+top.location=’xx.jsp’;<br style="box-sizing: border-box;"/>
+&lt;/script&gt;</p><p style="box-sizing: border-box; margin: 10px auto; text-indent: 0px;"><span style="box-sizing: border-box; color: red;">＝＝＝＝＝javascript中弹出选择框跳转到其他页面＝＝＝＝＝</span><br style="box-sizing: border-box;"/>
+&lt;script language=&quot;javascript&quot;&gt;<br style="box-sizing: border-box;"/>
+&lt;!--<br style="box-sizing: border-box;"/>
+function logout()...{<br style="box-sizing: border-box;"/>
+if (confirm(&quot;你确定要注销身份吗？是－选择确定，否-选择取消&quot;))...{<br style="box-sizing: border-box;"/>
+window.location.href=&quot;logout.asp?act=logout&quot;<br style="box-sizing: border-box;"/>
+}<br style="box-sizing: border-box;"/>
+}<br style="box-sizing: border-box;"/>
+--&gt;<br style="box-sizing: border-box;"/>
+&lt;/script&gt;<br style="box-sizing: border-box;"/>
+ </p><div style="box-sizing: border-box; margin: 10px auto; text-indent: 0px;"><span style="box-sizing: border-box; color: red;">＝</span><span style="box-sizing: border-box; color: red;">＝＝＝＝javascript中弹出提示框跳转到其他页面＝＝＝＝＝</span><br style="box-sizing: border-box;"/>
+&lt;script language=&quot;javascript&quot;&gt;<br style="box-sizing: border-box;"/>
+&lt;!--<br style="box-sizing: border-box;"/>
+function logout()...{<br style="box-sizing: border-box;"/>
+alert(&quot;你确定要注销身份吗？&quot;);<br style="box-sizing: border-box;"/>
+window.location.href=&quot;logout.asp?act=logout&quot;<br style="box-sizing: border-box;"/>
+}<br style="box-sizing: border-box;"/>
+--&gt;
+<div>&lt;/script&gt;</div></div></div></span>
+</div></body></html> 

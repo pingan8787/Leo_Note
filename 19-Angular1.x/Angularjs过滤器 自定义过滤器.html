@@ -1,0 +1,144 @@
+<html>
+<head>
+  <title>Angularjs过滤器 自定义过滤器</title>
+  <basefont face="微软雅黑" size="2" />
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="exporter-version" content="Evernote Windows/304720 (zh-CN, DDL); Windows/10.0.14393 (Win64);"/>
+  <style>
+    body, td {
+      font-family: 微软雅黑;
+      font-size: 10pt;
+    }
+  </style>
+</head>
+<body>
+<a name="977"/>
+<h1>Angularjs过滤器 自定义过滤器</h1>
+<div>
+<table bgcolor="#D4DDE5" border="0">
+<tr><td><b>创建时间：</b></td><td><i>2017/1/5 星期四 13:04</i></td></tr>
+<tr><td><b>更新时间：</b></td><td><i>2017/1/5 星期四 16:59</i></td></tr>
+<tr><td><b>作者：</b></td><td><i>王平安</i></td></tr>
+</table>
+</div>
+<br/>
+
+<div>
+<span><div style="box-sizing: border-box;"><div style="box-sizing: border-box; display: flex; position: relative; padding: 20px 0px; border-bottom: 1px solid rgb(223, 223, 223);"><div style="box-sizing: content-box; min-height: 250px; width: 860px; padding-right: 30px; border-right: 1px solid rgb(223, 223, 223);"><div>Angularjs过滤器是 angularjs非常棒的特性之一。有朝一日，你可能需要使用自定义过滤器，幸运的是，你找到了这篇博文。</div><p style="box-sizing: border-box; margin-bottom: 16px;">下面显示的是自定义过滤器长什么样子(请注意myfilter):</p><pre style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; display: block; overflow-x: auto; padding: 12px; background: rgb(63, 63, 63); color: rgb(220, 220, 220); border-radius: 3px; word-wrap: normal; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal;">
+&lt;tr ng-repeat=<span style="box-sizing: border-box; color: rgb(204, 147, 147);">&quot;friend in friends |myfilter:'param1':'param2':true:'windowScopedFilter'&quot;</span>&gt;
+</pre><p style="box-sizing: border-box; margin-bottom: 16px;"></p><p style="box-sizing: border-box; margin-bottom: 16px;">我们的自定义过滤器叫做 &quot;<em style="box-sizing: border-box;">myfilter</em>&quot;, 它有由 '<em style="box-sizing: border-box;">:</em>'隔开的4个参数. <br style="box-sizing: border-box;"/><br style="box-sizing: border-box;"/>
+这是一个将会用到的样本输入:</p><pre style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; display: block; overflow-x: auto; padding: 12px; background: rgb(63, 63, 63); color: rgb(220, 220, 220); border-radius: 3px; word-wrap: normal; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal;">
+   $scope.friends = [{name:<span style="box-sizing: border-box; color: rgb(204, 147, 147);">'John'</span>, phone:<span style="box-sizing: border-box; color: rgb(204, 147, 147);">'555-1276'</span>},  
+                      {name:<span style="box-sizing: border-box; color: rgb(204, 147, 147);">'Annie'</span>, phone:<span style="box-sizing: border-box; color: rgb(204, 147, 147);">'800-BIG-MARY'</span>},  
+                      {name:<span style="box-sizing: border-box; color: rgb(204, 147, 147);">'Mike'</span>, phone:<span style="box-sizing: border-box; color: rgb(204, 147, 147);">'555-4321'</span>},  
+                      {name:<span style="box-sizing: border-box; color: rgb(204, 147, 147);">'Adam'</span>, phone:<span style="box-sizing: border-box; color: rgb(204, 147, 147);">'555-5678'</span>},  
+                      {name:<span style="box-sizing: border-box; color: rgb(204, 147, 147);">'David'</span>, phone:<span style="box-sizing: border-box; color: rgb(204, 147, 147);">'555-8765'</span>},  
+                      {name:<span style="box-sizing: border-box; color: rgb(204, 147, 147);">'Mikay'</span>, phone:<span style="box-sizing: border-box; color: rgb(204, 147, 147);">'555-5678'</span>}];
+</pre><p style="box-sizing: border-box; margin-bottom: 16px;"></p><p style="box-sizing: border-box; margin-bottom: 16px;">过滤器只显示电话号码中含有 &quot;555&quot;的项，这是样本输出:</p><pre style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; display: block; overflow-x: auto; padding: 12px; background: rgb(63, 63, 63); color: rgb(220, 220, 220); border-radius: 3px; word-wrap: normal; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal;">
+ Name     Phone  
+ John      <span style="box-sizing: border-box; color: rgb(140, 208, 211);">555</span><span style="box-sizing: border-box; color: rgb(140, 208, 211);">-1276</span>  
+ Mike      <span style="box-sizing: border-box; color: rgb(140, 208, 211);">555</span><span style="box-sizing: border-box; color: rgb(140, 208, 211);">-4321</span>  
+ Adam      <span style="box-sizing: border-box; color: rgb(140, 208, 211);">555</span><span style="box-sizing: border-box; color: rgb(140, 208, 211);">-5678</span>  
+ David      <span style="box-sizing: border-box; color: rgb(140, 208, 211);">555</span><span style="box-sizing: border-box; color: rgb(140, 208, 211);">-8765</span>  
+ Mikay      <span style="box-sizing: border-box; color: rgb(140, 208, 211);">555</span><span style="box-sizing: border-box; color: rgb(140, 208, 211);">-5678</span></pre><p style="box-sizing: border-box; margin-bottom: 16px;"></p><div><br/></div><div style="box-sizing: border-box; margin-bottom: 16px;"><div>过滤&quot;<em style="box-sizing: border-box;">555</em>&quot;的处理流程由 &quot;<em style="box-sizing: border-box;">windowScopedFilter</em>&quot;执行, 它是过滤器 '<em style="box-sizing: border-box;">myfilter</em>'的第四个参数.</div></div></div></div></div><div style="box-sizing: border-box;"><div style="box-sizing: border-box; display: flex; position: relative; padding: 20px 0px; border-bottom: 1px solid rgb(223, 223, 223);"><div style="box-sizing: content-box; min-height: 250px; width: 860px; padding-right: 30px; border-right: 1px solid rgb(223, 223, 223);"><p style="box-sizing: border-box; margin-bottom: 16px;">下面我们来实现这些功能 (把logging添加到每个输入参数):</p><pre style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; display: block; overflow-x: auto; padding: 12px; background: rgb(63, 63, 63); color: rgb(220, 220, 220); border-radius: 3px; word-wrap: normal; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal;">
+ <span style="box-sizing: border-box; color: rgb(227, 206, 171);">var</span> myapp = angular.module(<span style="box-sizing: border-box; color: rgb(204, 147, 147);">'MyFilterApp'</span>, []);  
+ myapp.filter(<span style="box-sizing: border-box; color: rgb(204, 147, 147);">'myfilter'</span>, <span style="box-sizing: border-box;"><span style="box-sizing: border-box; color: rgb(227, 206, 171);">function</span>() </span>{  
+   <span style="box-sizing: border-box; color: rgb(227, 206, 171);">return</span> <span style="box-sizing: border-box;"><span style="box-sizing: border-box; color: rgb(227, 206, 171);">function</span>(<span style="box-sizing: border-box;">input, param1</span>) </span>{  
+      <span style="box-sizing: border-box; color: rgb(204, 147, 147);">console</span>.log(<span style="box-sizing: border-box; color: rgb(204, 147, 147);">&quot;------------------------------------------------- begin dump of custom parameters&quot;</span>);  
+      <span style="box-sizing: border-box; color: rgb(204, 147, 147);">console</span>.log(<span style="box-sizing: border-box; color: rgb(204, 147, 147);">&quot;input=&quot;</span>,input);  
+      <span style="box-sizing: border-box; color: rgb(204, 147, 147);">console</span>.log(<span style="box-sizing: border-box; color: rgb(204, 147, 147);">&quot;param1(string)=&quot;</span>, param1);  
+      <span style="box-sizing: border-box; color: rgb(227, 206, 171);">var</span> args = <span style="box-sizing: border-box; color: rgb(204, 147, 147);">Array</span>.prototype.slice.call(<span style="box-sizing: border-box; color: rgb(204, 147, 147);">arguments</span>);  
+      <span style="box-sizing: border-box; color: rgb(204, 147, 147);">console</span>.log(<span style="box-sizing: border-box; color: rgb(204, 147, 147);">&quot;arguments=&quot;</span>, args.length);  
+      <span style="box-sizing: border-box; color: rgb(227, 206, 171);">if</span> (<span style="box-sizing: border-box; color: rgb(140, 208, 211);">3</span>&lt;=args.length) {  
+           <span style="box-sizing: border-box; color: rgb(204, 147, 147);">console</span>.log(<span style="box-sizing: border-box; color: rgb(204, 147, 147);">&quot;param2(string)=&quot;</span>, args[<span style="box-sizing: border-box; color: rgb(140, 208, 211);">2</span>]);  
+      }  
+      <span style="box-sizing: border-box; color: rgb(227, 206, 171);">if</span> (<span style="box-sizing: border-box; color: rgb(140, 208, 211);">4</span>&lt;=args.length) {  
+           <span style="box-sizing: border-box; color: rgb(204, 147, 147);">console</span>.log(<span style="box-sizing: border-box; color: rgb(204, 147, 147);">&quot;param3(bool)=&quot;</span>, args[<span style="box-sizing: border-box; color: rgb(140, 208, 211);">3</span>]);  
+      }  
+      <span style="box-sizing: border-box; color: rgb(204, 147, 147);">console</span>.log(<span style="box-sizing: border-box; color: rgb(204, 147, 147);">&quot;------------------------------------------------- end dump of custom parameters&quot;</span>);  
+      <span style="box-sizing: border-box; color: rgb(127, 159, 127);">// filter  </span>
+      <span style="box-sizing: border-box; color: rgb(227, 206, 171);">if</span> (<span style="box-sizing: border-box; color: rgb(140, 208, 211);">5</span>&lt;=args.length) {  
+           <span style="box-sizing: border-box; color: rgb(227, 206, 171);">return</span> <span style="box-sizing: border-box; color: rgb(204, 147, 147);">window</span>[args[<span style="box-sizing: border-box; color: rgb(140, 208, 211);">4</span>]](input);  
+      }  
+      <span style="box-sizing: border-box; color: rgb(227, 206, 171);">return</span> input;  
+   };  
+ });
+</pre><p style="box-sizing: border-box; margin-bottom: 16px;"></p><p style="box-sizing: border-box; margin-bottom: 16px;">上面的代码大多都log了(译者注：将信息显示到控制台). 实际完成过滤的最重要的一部分是:</p><pre style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; display: block; overflow-x: auto; padding: 12px; background: rgb(63, 63, 63); color: rgb(220, 220, 220); border-radius: 3px; word-wrap: normal; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal;">
+      <span style="box-sizing: border-box; color: rgb(127, 159, 127);">// filter  </span>
+      <span style="box-sizing: border-box; color: rgb(227, 206, 171);">if</span> (<span style="box-sizing: border-box; color: rgb(140, 208, 211);">5</span>&lt;=args.length) {  
+           <span style="box-sizing: border-box; color: rgb(227, 206, 171);">return</span> <span style="box-sizing: border-box; color: rgb(204, 147, 147);">window</span>[args[<span style="box-sizing: border-box; color: rgb(140, 208, 211);">4</span>]](input);  
+      }  
+      <span style="box-sizing: border-box; color: rgb(227, 206, 171);">return</span> input;
+</pre><p style="box-sizing: border-box; margin-bottom: 16px;"></p><p style="box-sizing: border-box; margin-bottom: 16px;"><br style="box-sizing: border-box;"/><em style="box-sizing: border-box;">&quot;return window[args[4]](input)&quot;</em> 调用第四个参数, 它是 '<em style="box-sizing: border-box;">windowScopedFilter</em>'.<br style="box-sizing: border-box;"/><br style="box-sizing: border-box;"/>
+这是控制台输出:</p><pre style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; display: block; overflow-x: auto; padding: 12px; background: rgb(63, 63, 63); color: rgb(220, 220, 220); border-radius: 3px; word-wrap: normal; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal;">
+ <span style="box-sizing: border-box; color: rgb(204, 147, 147);">&quot;------------------------------------------------- begin dump of custom parameters&quot;</span> custom_filter_function.html:<span style="box-sizing: border-box; color: rgb(140, 208, 211);">21</span>  
+ <span style="box-sizing: border-box; color: rgb(204, 147, 147);">&quot;input=&quot;</span> [object <span style="box-sizing: border-box; color: rgb(204, 147, 147);">Array</span>] custom_filter_function.html:<span style="box-sizing: border-box; color: rgb(140, 208, 211);">22</span>  
+ <span style="box-sizing: border-box; color: rgb(204, 147, 147);">&quot;param1(string)=&quot;</span> <span style="box-sizing: border-box; color: rgb(204, 147, 147);">&quot;param1&quot;</span> custom_filter_function.html:<span style="box-sizing: border-box; color: rgb(140, 208, 211);">23</span>  
+ <span style="box-sizing: border-box; color: rgb(204, 147, 147);">&quot;arguments=&quot;</span> <span style="box-sizing: border-box; color: rgb(140, 208, 211);">5</span> custom_filter_function.html:<span style="box-sizing: border-box; color: rgb(140, 208, 211);">25</span>  
+ <span style="box-sizing: border-box; color: rgb(204, 147, 147);">&quot;param2(string)=&quot;</span> <span style="box-sizing: border-box; color: rgb(204, 147, 147);">&quot;param2&quot;</span> custom_filter_function.html:<span style="box-sizing: border-box; color: rgb(140, 208, 211);">27</span>  
+ <span style="box-sizing: border-box; color: rgb(204, 147, 147);">&quot;param3(bool)=&quot;</span> <span style="box-sizing: border-box; color: rgb(239, 239, 175);">true</span> custom_filter_function.html:<span style="box-sizing: border-box; color: rgb(140, 208, 211);">30</span>  
+ <span style="box-sizing: border-box; color: rgb(204, 147, 147);">&quot;------------------------------------------------- end dump of custom parameters&quot;</span> custom_filter_function.html:<span style="box-sizing: border-box; color: rgb(140, 208, 211);">32</span>  
+ <span style="box-sizing: border-box; color: rgb(204, 147, 147);">&quot;------------------------------------------------- begin dump of custom parameters&quot;</span> custom_filter_function.html:<span style="box-sizing: border-box; color: rgb(140, 208, 211);">21</span>  
+ <span style="box-sizing: border-box; color: rgb(204, 147, 147);">&quot;input=&quot;</span> [object <span style="box-sizing: border-box; color: rgb(204, 147, 147);">Array</span>] custom_filter_function.html:<span style="box-sizing: border-box; color: rgb(140, 208, 211);">22</span>  
+ <span style="box-sizing: border-box; color: rgb(204, 147, 147);">&quot;param1(string)=&quot;</span> <span style="box-sizing: border-box; color: rgb(204, 147, 147);">&quot;param1&quot;</span> custom_filter_function.html:<span style="box-sizing: border-box; color: rgb(140, 208, 211);">23</span>  
+ <span style="box-sizing: border-box; color: rgb(204, 147, 147);">&quot;arguments=&quot;</span> <span style="box-sizing: border-box; color: rgb(140, 208, 211);">5</span> custom_filter_function.html:<span style="box-sizing: border-box; color: rgb(140, 208, 211);">25</span>  
+ <span style="box-sizing: border-box; color: rgb(204, 147, 147);">&quot;param2(string)=&quot;</span> <span style="box-sizing: border-box; color: rgb(204, 147, 147);">&quot;param2&quot;</span> custom_filter_function.html:<span style="box-sizing: border-box; color: rgb(140, 208, 211);">27</span>  
+ <span style="box-sizing: border-box; color: rgb(204, 147, 147);">&quot;param3(bool)=&quot;</span> <span style="box-sizing: border-box; color: rgb(239, 239, 175);">true</span> custom_filter_function.html:<span style="box-sizing: border-box; color: rgb(140, 208, 211);">30</span>  
+ <span style="box-sizing: border-box; color: rgb(204, 147, 147);">&quot;------------------------------------------------- end dump of custom parameters&quot;</span> custom_filter_function.html:<span style="box-sizing: border-box; color: rgb(140, 208, 211);">32</span></pre><p style="box-sizing: border-box; margin-bottom: 16px;"></p><p style="box-sizing: border-box; margin-bottom: 16px;">完整代码:</p><div style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, 'Courier New', monospace; font-size: 13px; display: block; overflow-x: auto; padding: 12px; background-color: rgb(63, 63, 63); border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; font-style: normal; font-variant: normal; font-weight: normal; background-position: initial initial; background-repeat: initial initial;"><span style="color: rgb(220, 220, 220);"> &lt;html&gt; <br/>
+  <span style="box-sizing: border-box;"><span style="box-sizing: border-box; color: rgb(227, 206, 171);">&lt;<span style="box-sizing: border-box; color: rgb(239, 239, 143);">head</span>&gt;</span> <br/>
+ <span style="box-sizing: border-box; color: rgb(227, 206, 171);">&lt;<span style="box-sizing: border-box; color: rgb(239, 239, 143);">script</span> <span style="box-sizing: border-box;">src</span>=<span style="box-sizing: border-box; color: rgb(204, 147, 147);">&quot;angular.min.js&quot;</span>&gt;</span><span style="box-sizing: border-box; color: rgb(227, 206, 171);">&lt;/<span style="box-sizing: border-box; color: rgb(239, 239, 143);">script</span>&gt;</span> <br/>
+ <span style="box-sizing: border-box; color: rgb(227, 206, 171);">&lt;<span style="box-sizing: border-box; color: rgb(239, 239, 143);">script</span> <span style="box-sizing: border-box;">type</span>=<span style="box-sizing: border-box; color: rgb(204, 147, 147);">&quot;text/javascript&quot;</span>&gt;</span><span style="box-sizing: border-box;"> <br/>
+ <span style="box-sizing: border-box;"><span style="box-sizing: border-box; color: rgb(227, 206, 171);">function</span> <span style="box-sizing: border-box; color: rgb(239, 239, 143);">windowScopedFilter</span> (<span style="box-sizing: border-box;">input</span>) </span>{ <br/>
+      <span style="box-sizing: border-box; color: rgb(227, 206, 171);">var</span> output = []; <br/>
+      angular.forEach(input, <span style="box-sizing: border-box;"><span style="box-sizing: border-box; color: rgb(227, 206, 171);">function</span>(<span style="box-sizing: border-box;">v,k</span>)</span>{ <br/>
+           <span style="box-sizing: border-box; color: rgb(227, 206, 171);">if</span> (v.phone.contains(<span style="box-sizing: border-box; color: rgb(204, 147, 147);">&quot;555&quot;</span>)) { <br/>
+                output.push(v); <br/>
+           } <br/>
+      }); <br/>
+      <span style="box-sizing: border-box; color: rgb(227, 206, 171);">return</span> output;       <br/>
+ } <br/>
+ <span style="box-sizing: border-box; color: rgb(227, 206, 171);">var</span> myapp = angular.module(<span style="box-sizing: border-box; color: rgb(204, 147, 147);">'MyFilterApp'</span>, []); <br/>
+ myapp.filter(<span style="box-sizing: border-box; color: rgb(204, 147, 147);">'myfilter'</span>, <span style="box-sizing: border-box;"><span style="box-sizing: border-box; color: rgb(227, 206, 171);">function</span>() </span>{ <br/>
+   <span style="box-sizing: border-box; color: rgb(227, 206, 171);">return</span> <span style="box-sizing: border-box;"><span style="box-sizing: border-box; color: rgb(227, 206, 171);">function</span>(<span style="box-sizing: border-box;">input, param1</span>) </span>{ <br/>
+      <span style="box-sizing: border-box; color: rgb(204, 147, 147);">console</span>.log(<span style="box-sizing: border-box; color: rgb(204, 147, 147);">&quot;------------------------------------------------- begin dump of custom parameters&quot;</span>); <br/>
+      <span style="box-sizing: border-box; color: rgb(204, 147, 147);">console</span>.log(<span style="box-sizing: border-box; color: rgb(204, 147, 147);">&quot;input=&quot;</span>,input); <br/>
+      <span style="box-sizing: border-box; color: rgb(204, 147, 147);">console</span>.log(<span style="box-sizing: border-box; color: rgb(204, 147, 147);">&quot;param1(string)=&quot;</span>, param1); <br/>
+      <span style="box-sizing: border-box; color: rgb(227, 206, 171);">var</span> args = <span style="box-sizing: border-box; color: rgb(204, 147, 147);">Array</span>.prototype.slice.call(<span style="box-sizing: border-box; color: rgb(204, 147, 147);">arguments</span>); <br/>
+      <span style="box-sizing: border-box; color: rgb(204, 147, 147);">console</span>.log(<span style="box-sizing: border-box; color: rgb(204, 147, 147);">&quot;arguments=&quot;</span>, args.length); <br/>
+      <span style="box-sizing: border-box; color: rgb(227, 206, 171);">if</span> (<span style="box-sizing: border-box; color: rgb(140, 208, 211);">3</span>&lt;=args.length) { <br/>
+           <span style="box-sizing: border-box; color: rgb(204, 147, 147);">console</span>.log(<span style="box-sizing: border-box; color: rgb(204, 147, 147);">&quot;param2(string)=&quot;</span>, args[<span style="box-sizing: border-box; color: rgb(140, 208, 211);">2</span>]); <br/>
+      } <br/>
+      <span style="box-sizing: border-box; color: rgb(227, 206, 171);">if</span> (<span style="box-sizing: border-box; color: rgb(140, 208, 211);">4</span>&lt;=args.length) { <br/>
+           <span style="box-sizing: border-box; color: rgb(204, 147, 147);">console</span>.log(<span style="box-sizing: border-box; color: rgb(204, 147, 147);">&quot;param3(bool)=&quot;</span>, args[<span style="box-sizing: border-box; color: rgb(140, 208, 211);">3</span>]); <br/>
+      } <br/>
+      <span style="box-sizing: border-box; color: rgb(204, 147, 147);">console</span>.log(<span style="box-sizing: border-box; color: rgb(204, 147, 147);">&quot;------------------------------------------------- end dump of custom parameters&quot;</span>); <br/>
+      <span style="box-sizing: border-box; color: rgb(127, 159, 127);">// filter </span><br/>
+      <span style="box-sizing: border-box; color: rgb(227, 206, 171);">if</span> (<span style="box-sizing: border-box; color: rgb(140, 208, 211);">5</span>&lt;=args.length) { <br/>
+           <span style="box-sizing: border-box; color: rgb(227, 206, 171);">return</span> <span style="box-sizing: border-box; color: rgb(204, 147, 147);">window</span>[args[<span style="box-sizing: border-box; color: rgb(140, 208, 211);">4</span>]](input); <br/>
+      } <br/>
+      <span style="box-sizing: border-box; color: rgb(227, 206, 171);">return</span> input; <br/>
+   }; <br/>
+ }); <br/>
+ myapp.controller(<span style="box-sizing: border-box; color: rgb(204, 147, 147);">'MyFilterController'</span>, [<span style="box-sizing: border-box; color: rgb(204, 147, 147);">'$scope'</span>, <span style="box-sizing: border-box;"><span style="box-sizing: border-box; color: rgb(227, 206, 171);">function</span>(<span style="box-sizing: border-box;">$scope</span>) </span>{ <br/>
+   $scope.friends = [{name:<span style="box-sizing: border-box; color: rgb(204, 147, 147);">'John'</span>, phone:<span style="box-sizing: border-box; color: rgb(204, 147, 147);">'555-1276'</span>}, <br/>
+                      {name:<span style="box-sizing: border-box; color: rgb(204, 147, 147);">'Annie'</span>, phone:<span style="box-sizing: border-box; color: rgb(204, 147, 147);">'800-BIG-MARY'</span>}, <br/>
+                      {name:<span style="box-sizing: border-box; color: rgb(204, 147, 147);">'Mike'</span>, phone:<span style="box-sizing: border-box; color: rgb(204, 147, 147);">'555-4321'</span>}, <br/>
+                      {name:<span style="box-sizing: border-box; color: rgb(204, 147, 147);">'Adam'</span>, phone:<span style="box-sizing: border-box; color: rgb(204, 147, 147);">'555-5678'</span>}, <br/>
+                      {name:<span style="box-sizing: border-box; color: rgb(204, 147, 147);">'David'</span>, phone:<span style="box-sizing: border-box; color: rgb(204, 147, 147);">'555-8765'</span>}, <br/>
+                      {name:<span style="box-sizing: border-box; color: rgb(204, 147, 147);">'Mikay'</span>, phone:<span style="box-sizing: border-box; color: rgb(204, 147, 147);">'555-5678'</span>}]; <br/>
+ }]); <br/>
+ </span><span style="box-sizing: border-box; color: rgb(227, 206, 171);">&lt;/<span style="box-sizing: border-box; color: rgb(239, 239, 143);">script</span>&gt;</span> <br/>
+ <span style="box-sizing: border-box; color: rgb(227, 206, 171);">&lt;/<span style="box-sizing: border-box; color: rgb(239, 239, 143);">head</span>&gt;</span></span> <br/>
+ &lt;body ng-app=</span><span style="box-sizing: border-box; color: rgb(204, 147, 147);">&quot;MyFilterApp&quot;</span><span style="color: rgb(220, 220, 220);">&gt; <br/>
+ <span style="box-sizing: border-box;"><span style="box-sizing: border-box; color: rgb(227, 206, 171);">&lt;<span style="box-sizing: border-box; color: rgb(239, 239, 143);">div</span> <span style="box-sizing: border-box;">ng-controller</span>=<span style="box-sizing: border-box; color: rgb(204, 147, 147);">&quot;MyFilterController&quot;</span>&gt;</span> <br/>
+      <span style="box-sizing: border-box; color: rgb(227, 206, 171);">&lt;<span style="box-sizing: border-box; color: rgb(239, 239, 143);">table</span> <span style="box-sizing: border-box;">id</span>=<span style="box-sizing: border-box; color: rgb(204, 147, 147);">&quot;searchTextResults&quot;</span>&gt;</span> <br/>
+       <span style="box-sizing: border-box; color: rgb(227, 206, 171);">&lt;<span style="box-sizing: border-box; color: rgb(239, 239, 143);">tr</span>&gt;</span><span style="box-sizing: border-box; color: rgb(227, 206, 171);">&lt;<span style="box-sizing: border-box; color: rgb(239, 239, 143);">th</span>&gt;</span>Name<span style="box-sizing: border-box; color: rgb(227, 206, 171);">&lt;/<span style="box-sizing: border-box; color: rgb(239, 239, 143);">th</span>&gt;</span><span style="box-sizing: border-box; color: rgb(227, 206, 171);">&lt;<span style="box-sizing: border-box; color: rgb(239, 239, 143);">th</span>&gt;</span>Phone<span style="box-sizing: border-box; color: rgb(227, 206, 171);">&lt;/<span style="box-sizing: border-box; color: rgb(239, 239, 143);">th</span>&gt;</span><span style="box-sizing: border-box; color: rgb(227, 206, 171);">&lt;/<span style="box-sizing: border-box; color: rgb(239, 239, 143);">tr</span>&gt;</span> <br/>
+       <span style="box-sizing: border-box; color: rgb(227, 206, 171);">&lt;<span style="box-sizing: border-box; color: rgb(239, 239, 143);">tr</span> <span style="box-sizing: border-box;">ng-repeat</span>=<span style="box-sizing: border-box; color: rgb(204, 147, 147);">&quot;friend in friends |myfilter:'param1':'param2':true:'windowScopedFilter'&quot;</span>&gt;</span> <br/>
+        <span style="box-sizing: border-box; color: rgb(227, 206, 171);">&lt;<span style="box-sizing: border-box; color: rgb(239, 239, 143);">td</span>&gt;</span>{{friend.name}}<span style="box-sizing: border-box; color: rgb(227, 206, 171);">&lt;/<span style="box-sizing: border-box; color: rgb(239, 239, 143);">td</span>&gt;</span> <br/>
+        <span style="box-sizing: border-box; color: rgb(227, 206, 171);">&lt;<span style="box-sizing: border-box; color: rgb(239, 239, 143);">td</span>&gt;</span>{{friend.phone}}<span style="box-sizing: border-box; color: rgb(227, 206, 171);">&lt;/<span style="box-sizing: border-box; color: rgb(239, 239, 143);">td</span>&gt;</span> <br/>
+       <span style="box-sizing: border-box; color: rgb(227, 206, 171);">&lt;/<span style="box-sizing: border-box; color: rgb(239, 239, 143);">tr</span>&gt;</span> <br/>
+      <span style="box-sizing: border-box; color: rgb(227, 206, 171);">&lt;/<span style="box-sizing: border-box; color: rgb(239, 239, 143);">table</span>&gt;</span> <br/>
+ <span style="box-sizing: border-box; color: rgb(227, 206, 171);">&lt;/<span style="box-sizing: border-box; color: rgb(239, 239, 143);">div</span>&gt;</span></span> <br/>
+ &lt;hr&gt; <br/>
+ <span style="box-sizing: border-box;"><span style="box-sizing: border-box; color: rgb(227, 206, 171);">&lt;/<span style="box-sizing: border-box; color: rgb(239, 239, 143);">body</span>&gt;</span></span> </span><div><span style="color: rgb(220, 220, 220);"> &lt;<span style="box-sizing: border-box;">/html&gt;</span></span></div></div></div></div></div></span>
+</div></body></html> 

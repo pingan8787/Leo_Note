@@ -1,0 +1,58 @@
+<html>
+<head>
+  <title>8-用 const 还是用 let？</title>
+  <basefont face="微软雅黑" size="2" />
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="exporter-version" content="Evernote Windows/304720 (zh-CN, DDL); Windows/10.0.14393 (Win64);"/>
+  <style>
+    body, td {
+      font-family: 微软雅黑;
+      font-size: 10pt;
+    }
+  </style>
+</head>
+<body>
+<a name="868"/>
+<h1>8-用 const 还是用 let？</h1>
+<div>
+<table bgcolor="#D4DDE5" border="0">
+<tr><td><b>创建时间：</b></td><td><i>2017/4/7 星期五 10:08</i></td></tr>
+<tr><td><b>更新时间：</b></td><td><i>2017/6/29 星期四 9:32</i></td></tr>
+<tr><td><b>作者：</b></td><td><i>王平安</i></td></tr>
+</table>
+</div>
+<br/>
+
+<div>
+<span><div>深入浅出ES6（十四）：let和const  <a href="http://www.infoq.com/cn/articles/es6-in-depth-let-and-const/">www.infoq.com/cn/articles/es6-in-depth-let-and-const/</a></div><div><br/></div><div><span style="font-size: 19px;"><span style="color: rgb(255, 0, 0);"><b><code>let</code>和<code>const</code>是JavaScript里相对较新的变量声明方式。</b></span></span></div><div><span style="font-size: 19px;"><span style="color: rgb(255, 0, 0);"><b>像我们之前提到过的， <code>let</code>在很多方面与<code>var</code>是相似的，但是可以帮助大家避免在JavaScript里常见一些问题。</b></span></span></div><div><span style="font-size: 19px;"><span style="color: rgb(255, 0, 0);"><b><code>const</code>是对<code>let</code>的一个增强，它能阻止对一个变量再次赋值。</b></span></span></div><div><br/></div><div><br/></div><div>ES6 里新增了两种声明变量的方式，let 和 const，加上原来的 var，一共就有三种方式来声明变量了。那到底该用哪个呢？关于“尽可能不用 var” 这一点，大家应该没有什么意见分歧（其实还是有少数人不这么想的），关于“是用 let 还是用 const”，社区里主要有两种不同的观点：</div><div><p>1. 默认全用 let，只在符合一些写代码的人的主观判断条件的时候用 const，下面举个这样的“主观判断条件”的例子（实际代码中用到 const 的几率大概会是 0.1%）：</p><ul><li>你能 100% 确定该变量永远不会在其它的代码行里被重新赋值，但是该变量的初始值有可能在未来会被调整（有点配置项的意思），且</li><li>该变量的初始值是个数字字面量（或者多个数字组成的数学运算表达式）、字符串字面量、布尔字面量、数组字面量、对象字面量、正则字面量、symbol &quot;字面量&quot;（打引号是因为 symbol 其实没有字面量），且</li><li>该变量是个全局变量，或者是模块内的全局变量</li></ul><p>代码举例：</p><div><pre>
+const VERSION = 2<span style="color: #000000;">
+const TIMEOUT </span>= 10000<span style="color: #000000;">
+
+const MB </span>= 1024 * 1024<span style="color: #000000;">
+const DAY </span>= 24 * 60 * 60 * 1000<span style="color: #000000;">
+
+const COLOR </span>= &quot;rgb(255,255,255)&quot;<span style="color: #000000;">
+const HTMLNS </span>= &quot;http://www.w3.org/1999/xhtml&quot;<span style="color: #000000;">
+
+const BUTTONS </span>= [&quot;left&quot;, &quot;middle&quot;, &quot;right&quot;<span style="color: #000000;">]
+const SIDES </span>= [&quot;left&quot;, &quot;right&quot;, &quot;top&quot;, &quot;bottom&quot;]
+</pre></div><p>2. 默认全用 const，只有该变量需要被重新赋值才用 let （实际代码中用到 const 的几率大概会是 95%），和上面举的三个主观判断条件对比一下差异：</p><ul><li>不能 100% 确定该变量永远不会被重新赋值（可能只是现在是没被重新赋值，说不定未来会），或者</li><li>该变量的初始值不是字面量，比如说是个函数调用表达式，或者</li><li>该变量是个局部变量</li></ul><p>第一种用法是非常主观的，比如你用 const 的判断条件有可能就和我上面举的不一样，比如你也许觉得局部变量也可以用 const ？或者你觉的数组和对象是可变的值，怎么能用 const 呢？因为很主观，所以一个团队的代码风格很难达成一致，甚至只有你一个人维护的代码，const 的用法在不同的时间内也没有统一的规律，因为可能连你自己都没有明确的想过：“什么时候我应该用 const”，说白了就是“看心情”。而第二种用法是非常客观的，简单直接，没有含糊不清的地方，如果采用这种用法，至少团队代码风格的统一是不成问题的。</p><p>ES6 之前你有没有写过或者见过类似下面这样的代码：</p><div><pre><span style="color: #0000ff;">var</span> ids = document.getElementById(&quot;ids&quot;).value <span style="color: #008000;">//</span><span style="color: #008000;"> 多个 id 组成的字符串，比如 &quot;100 101 102&quot;</span>
+ids = ids.split(&quot; &quot;) <span style="color: #008000;">//</span><span style="color: #008000;"> 拆分成数组</span>
+ids.forEach(...
+</pre></div><p>ids 这个变量的类型从字符串变成了数组，但变量名却没变（写代码的人懒的想新名字），这被认为是一种不好的编码风格。如果有“默认都用 const”的风格约定（第一行已经写了 const ids），会迫使写代码的人在第二行想一个新的变量名（当然他也有可能把一行的 const 改成 let），而默认用 let 的风格不会让人有种迫使感（当然用 let 的人也可能根本不需要迫使感就会主动想一个新的名字，看人）。</p><p>除了上面说的这两个“默认用 const” 的优点，还有人说默认用 const 比用 let 能让代码更有可读性，更语义：读代码的人看一个变量的声明方式就知道它在下面会不会被重新赋值。但这些都是从代码风格上说事的，代码风格是很主观的一个东西，有人觉的好，有人并不觉的不好，你很难拿着这样的优点去说服默认用 let 的人。比如他们可能会回击说：“我们团队有详细的风格指南，规定了什么时候用 const，代码风格统一不是问题”（第一个优点没了）；“同样是有风格指南，我们团队的人不会复用不该复用的变量名”（第二个优点没了）；“let 比 const 短”（你反而无言以对，被击败）。</p><p>有没有更有说服力的优点呢，比如能不能举个“默认用 const 能够避免，而默认用 let 避免不了的 bug” 的代码实例呢？下面我构思了一个：</p><div><pre>
+let path = require(&quot;path&quot;) <span style="color: #008000;">//</span><span style="color: #008000;"> 这里 path 是个全局变量 </span><span style="color: #008000;">
+/*</span><span style="color: #008000;">
+  这里有很多代码
+</span><span style="color: #008000;">*/</span><span style="color: #0000ff;">function</span><span style="color: #000000;"> bar() {
+  let path </span>= &quot;.&quot; <span style="color: #008000;">//</span><span style="color: #008000;"> 这里 path 是个局部变量</span>
+  <span style="color: #008000;">/*</span><span style="color: #008000;">
+    这里有很多代码
+  </span><span style="color: #008000;">*/</span>
+  <span style="color: #0000ff;">if</span> (<span style="color: #0000ff;">this</span>.isInProduction) { <span style="color: #008000;">//</span><span style="color: #008000;"> 只在生产环境中执行的代码</span>
+    path = &quot;~&quot; <span style="color: #008000;">//</span><span style="color: #008000;"> 为局部变量 path 重新赋值</span><span style="color: #000000;">  }
+  </span><span style="color: #008000;">/*</span><span style="color: #008000;">
+    使用局部变量 path 的代码
+  </span><span style="color: #008000;">*/</span><span style="color: #000000;">
+}</span> 
+</pre></div><p>假设这是一段运行正常的代码， path 是个全局变量，同时又是个 bar 函数的局部变量。某天有人重构 bar 函数的时候认为 path 这个局部变量起的不好，和全局变量冲突了，应该换了个名字，然后把 bar 函数里面声明 path 的地方和使用 path 的地方的 path 都替换成了 filePath，但不小心漏掉了 path = &quot;~&quot; 这一行里的 path，本地测试没问题，上线出了故障，好心办了坏事啊。</p><p>如果这个全局变量 path 是用 const 定义的话。。。也并不能发现这个 bug。为什么呢，请看我的<a href="http://www.cnblogs.com/ziyunfei/p/6043513.html" target="_blank">上篇文章</a>，是因为关于 const，ES6 有个设计缺陷，就是为 const 变量重新赋值不是个静态错误。但是如果你同时使用了 ESLint 并开启了 <a href="http://eslint.org/docs/rules/no-const-assign" target="_blank">no-const-assign</a> 规则，这个线上问题就能被扼杀在萌芽状态：</p><p><img src="8-用 const 还是用 let？_files/Image.png" type="image/png" width="70%"/></p><p>总结：默认用 const 可以带来一些代码风格上的好处，如果配合 Lint 工具还可以避免某些意外的 bug，但如果不使用 Lint 工具，相反可能会造成一些意外的 bug（比如上篇文章中开头举的）。不管是可能造成的 bug，还是可能避免的 bug，都是些 edge case，并不常见，所以很大程度上，选择默认用 const 还是 let 仍是一件很主观的事。</p><p>ES6 的编辑 Allen Wirfs-Brock <a href="https://esdiscuss.org/topic/should-const-be-favored-over-let#content-6" target="_blank">曾说过</a>，如果能重来一次，他希望把 let 设计成像现在的 const 一样，而新增一个比如 let var 代替现在的 let。但因为 const 这个保留字在 JS 刚发明的时候就从 Java 抄过来了，let/const 这对儿关键字在制定 ES5 的时候就计划在 ES6 里用了，所以 ES6 里也就没再改了。</p></div><div><br/></div><div> </div></span>
+</div></body></html> 

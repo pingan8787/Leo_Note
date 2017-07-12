@@ -1,0 +1,94 @@
+<html>
+<head>
+  <title>4 - HTML5新标签</title>
+  <basefont face="微软雅黑" size="2" />
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="exporter-version" content="Evernote Windows/304720 (zh-CN, DDL); Windows/10.0.14393 (Win64);"/>
+  <style>
+    body, td {
+      font-family: 微软雅黑;
+      font-size: 10pt;
+    }
+  </style>
+</head>
+<body>
+<a name="401"/>
+<h1>4 - HTML5新标签</h1>
+<div>
+<table bgcolor="#D4DDE5" border="0">
+<tr><td><b>创建时间：</b></td><td><i>2017/5/31 星期三 10:09</i></td></tr>
+<tr><td><b>更新时间：</b></td><td><i>2017/5/31 星期三 10:09</i></td></tr>
+<tr><td><b>作者：</b></td><td><i>王平安</i></td></tr>
+</table>
+</div>
+<br/>
+
+<div>
+<span><div><br/></div><div><div style="font-style: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;"><div><img src="4 - HTML5新标签_files/Image.gif" type="image/gif" height="270" style="color: rgb(85, 85, 85); font-family: "Microsoft YaHei"; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;" width="540"/></div><span style="color: rgb(85, 85, 85);"><span style="font-size: 14px;"><span style="font-family: 'Microsoft YaHei';"><br/>
+相关的HTML代码是：<br/>
+ &lt;body&gt;<br/>
+  &lt;header&gt;...&lt;/header&gt;<br/>
+  &lt;nav&gt;...&lt;/nav&gt;<br/>
+  &lt;article&gt;<br/>
+   &lt;section&gt;...&lt;/section&gt;<br/>
+  &lt;/article&gt;<br/>
+  &lt;aside&gt;...&lt;/aside&gt;<br/>
+  &lt;footer&gt;...&lt;/footer&gt;<br/>
+ &lt;/body&gt;</span></span></span></div><p style="color: rgb(85, 85, 85); font-family: &quot;Microsoft YaHei&quot;; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;">　有了上面的直接的感官的认识后，我们下面一一来介绍HTML5中的相关结构标签。</p><p style="color: rgb(85, 85, 85); font-family: &quot;Microsoft YaHei&quot;; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;"><span style="color: rgb(0, 0, 255); font-weight: bold;">section标签</span><br/>
+  &lt;section&gt;标签，定义文档中的节。比如章节、页眉、页脚或文档中的其它部分。一般用于成节的内容，会在文档流中开始一个新的节。它用来表现普通的文档内容或应用区块，通常由内容及其标题组成。但section元素标签并非一个普通的容器元素，它表示一段专题性的内容，一般会带有标题。<br/><br/>
+  当我们描述一件具体的事物的时候，通常鼓励使用article来代替section；当我们使用section时，仍然可以使用h1来作为标题，而不用担心它所处的位置，以及其它地方是否用到；当一个容器需要被直接定义样式或通过脚本定义行为时，推荐使用div元素而非section。<br/><br/>
+ &lt;section&gt;<br/>
+   &lt;h1&gt;section是什么？&lt;/h1&gt;<br/>
+   &lt;h2&gt;一个新的章节&lt;/h2&gt;<br/>
+   &lt;article&gt;<br/>
+    &lt;h2&gt;关于section&lt;/h1&gt;<br/>
+    &lt;p&gt;section的介绍&lt;/p&gt;<br/>
+    ...<br/>
+   &lt;/article&gt;<br/>
+ &lt;/section&gt;</p><p style="color: rgb(85, 85, 85); font-family: &quot;Microsoft YaHei&quot;; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;"><span style="color: rgb(0, 0, 255); font-weight: bold;">article标签</span><br/>
+  &lt;article&gt;是一个特殊的section标签，它比section具有更明确的语义，它代表一个独立的、完整的相关内容块，可独立于页面其它内容使用。例如一篇完整的论坛帖子，一篇博客文章，一个用户评论等等。一般来说，article会有标题部分（通常包含在header内），有时也会包含footer。article可以嵌套，内层的article对外层的article标签有隶属关系。例如，一篇博客的文章，可以用article显示，然后一些评论可以以article的形式嵌入其中。<br/>
+ &lt;article&gt;<br/>
+  &lt;header&gt;<br/>
+   &lt;hgroup&gt;<br/>
+    &lt;h1&gt;这是一篇介绍HTML 5结构标签的文章&lt;/h1&gt;<br/>
+    &lt;h2&gt;HTML 5的革新&lt;/h2&gt;<br/>
+   &lt;/hgroup&gt;<br/>
+   &lt;time datetime=&quot;2011-03-20&quot;&gt;2011.03.20&lt;/time&gt;<br/>
+  &lt;/header&gt;<br/>
+  &lt;p&gt;文章内容详情&lt;/p&gt;<br/>
+ &lt;/article&gt;</p><p style="color: rgb(85, 85, 85); font-family: &quot;Microsoft YaHei&quot;; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;"><span style="color: rgb(0, 0, 255); font-weight: bold;">nav标签</span><br/>
+   nav标签代表页面的一个部分，是一个可以作为页面导航的链接组，其中的导航元素链接到其它页面或者当前页面的其它部分，使html代码在语义化方面更加精确，同时对于屏幕阅读器等设备的支持也更好。<br/>
+&lt;nav&gt;<br/>
+ &lt;ul&gt;<br/>
+  &lt;li&gt;厚德IT&lt;/li&gt;<br/>
+  &lt;li&gt;FlyDragon&lt;/li&gt;<br/>
+  &lt;li&gt;J飞龙天惊&lt;/li&gt;<br/>
+ &lt;/ul&gt;<br/>
+&lt;/nav&gt;</p><p style="color: rgb(85, 85, 85); font-family: &quot;Microsoft YaHei&quot;; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;"><span style="color: rgb(0, 0, 255); font-weight: bold;">aside标签</span><br/>
+   aside标签用来装载非正文的内容，被视为页面里面一个单独的部分。它包含的内容与页面的主要内容是分开的，可以被删除，而不会影响到网页的内容、章节或是页面所要传达的信息。例如广告，成组的链接，侧边栏等等。<br/><br/>
+ &lt;aside&gt;<br/>
+  &lt;h1&gt;作者简介&lt;/h1&gt;<br/>
+  &lt;p&gt;厚德IT&lt;/p&gt;<br/>
+ &lt;/aside&gt;</p><p style="color: rgb(85, 85, 85); font-family: &quot;Microsoft YaHei&quot;; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;"><span style="color: rgb(0, 0, 255); font-weight: bold;">header标签</span><br/>
+  &lt;header&gt;标签定义文档的页眉，通常是一些引导和导航信息。它不局限于写在网页头部，也可以写在网页内容里面。通常&lt;header&gt;标签至少包含（但不局限于）一个标题标记（&lt;h1&gt;-&lt;h6&gt;），还可以包括&lt;hgroup&gt;标签，还可以包括表格内容、标识、搜索表单、&lt;nav&gt;导航等。<br/>
+&lt;header&gt;<br/>
+ &lt;hgroup&gt;<br/>
+  &lt;h1&gt;网站标题&lt;/h1&gt;<br/>
+  &lt;h1&gt;网站副标题&lt;/h1&gt;<br/>
+ &lt;/hgroup&gt;<br/>
+&lt;/header&gt;</p><p style="color: rgb(85, 85, 85); font-family: &quot;Microsoft YaHei&quot;; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;"><span style="color: rgb(0, 0, 255); font-weight: bold;">footer标签</span><br/>
+   footer标签定义section或document的页脚，包含了与页面、文章或是部分内容有关的信息，比如说文章的作者或者日期。作为页面的页脚时，一般包含了版权、相关文件和链接。它和&lt;header&gt;标签使用基本一样，可以在一个页面中多次使用，如果在一个区段的后面加入footer，那么它就相当于该区段的页脚了。<br/>
+ &lt;footer&gt;<br/>
+   COPYRIGHT@厚德IT<br/>
+ &lt;/footer&gt;</p><p style="color: rgb(85, 85, 85); font-family: &quot;Microsoft YaHei&quot;; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;"><span style="color: rgb(0, 0, 255); font-weight: bold;">hgroup标签</span><br/>
+   hgroup标签是对网页或区段section的标题元素（h1-h6）进行组合。例如，在一区段中你有连续的h系列的标签元素，则可以用hgroup将他们括起来<br/>
+ &lt;hgroup&gt;<br/>
+  &lt;h1&gt;这是一篇介绍HTML 5结构标签的文章&lt;/h1&gt;<br/>
+  &lt;h2&gt;HTML 5的革新&lt;/h2&gt;<br/>
+ &lt;/hgroup&gt;</p><p style="color: rgb(85, 85, 85); font-family: &quot;Microsoft YaHei&quot;; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;"><span style="color: rgb(0, 0, 255); font-weight: bold;">figure 标签</span><br/>
+   用于对元素进行组合。多用于图片与图片描述组合。<br/>
+ &lt;figure&gt;<br/>
+  &lt;img src=&quot;img.gif&quot; alt=&quot;figure标签&quot; title=&quot;figure标签&quot; /&gt;<br/>
+  &lt;figcaption&gt;这儿是图片的描述信息&lt;/figcaption&gt;<br/>
+ &lt;/figure&gt;</p></div><div><br/></div><div style="color: rgb(85, 85, 85); font-family: 'Microsoft YaHei'; font-size: 14px; font-style: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;"><span style="color: rgb(0, 0, 255); font-weight: bold;">总结：</span><div>   有了新的结构性的标签的标准，让HTML文档更加清晰，可阅读性更强，更利于SEO，也更利于视障人士阅读。</div></div></span>
+</div></body></html> 

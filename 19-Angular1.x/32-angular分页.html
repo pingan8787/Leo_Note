@@ -1,0 +1,114 @@
+<html>
+<head>
+  <title>32-angular分页</title>
+  <basefont face="微软雅黑" size="2" />
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="exporter-version" content="Evernote Windows/304720 (zh-CN, DDL); Windows/10.0.14393 (Win64);"/>
+  <style>
+    body, td {
+      font-family: 微软雅黑;
+      font-size: 10pt;
+    }
+  </style>
+</head>
+<body>
+<a name="410"/>
+<h1>32-angular分页</h1>
+<div>
+<table bgcolor="#D4DDE5" border="0">
+<tr><td><b>创建时间：</b></td><td><i>2017/5/24 星期三 17:06</i></td></tr>
+<tr><td><b>更新时间：</b></td><td><i>2017/5/24 星期三 17:06</i></td></tr>
+<tr><td><b>作者：</b></td><td><i>王平安</i></td></tr>
+</table>
+</div>
+<br/>
+
+<div>
+<span><div><a href="http://www.cnblogs.com/BGOnline/p/6268388.html">http://www.cnblogs.com/BGOnline/p/6268388.html</a></div><div><br/></div><div>闲来没事，分享下项目中自己写的分页组件。来不及了，直接上车。</div><div><p>效果：</p><p><img src="32-angular分页_files/Image.png" type="image/png"/></p><p><img src="32-angular分页_files/Image [1].png" type="image/png"/></p><p><img src="32-angular分页_files/Image [2].png" type="image/png"/></p><p>输入框可任意输入，并会自动提交到该页</p><p> </p><p> 依赖项：</p><p><span style="color: #ff9900;">fontawesome，bootstrap</span></p><p>html:</p><div><div><a title="复制代码"><img src="32-angular分页_files/Image.gif" type="image/gif" alt="复制代码"/></a></div><pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">ul </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=&quot;page clearfix&quot;</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">li </span><span style="color: #ff0000;">ng-hide</span><span style="color: #0000ff;">=&quot;currentPage &lt;= 1&quot;</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">a </span><span style="color: #ff0000;">href</span><span style="color: #0000ff;">=&quot;&quot;</span><span style="color: #ff0000;"> ng-click</span><span style="color: #0000ff;">=&quot;firstPage()&quot;</span><span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">i </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=&quot;fa fa-step-backward&quot;</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">i</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">a</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">a </span><span style="color: #ff0000;">href</span><span style="color: #0000ff;">=&quot;&quot;</span><span style="color: #ff0000;"> ng-click</span><span style="color: #0000ff;">=&quot;prePage()&quot;</span><span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">i </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=&quot;fa fa-play fa-flip-horizontal&quot;</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">i</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">a</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">span</span><span style="color: #0000ff;">&gt;</span>页码<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">span</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">=&quot;text&quot;</span><span style="color: #ff0000;"> ng-model</span><span style="color: #0000ff;">=&quot;currentPage&quot;</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;">/
+        </span><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">span </span><span style="color: #ff0000;">ng-bind</span><span style="color: #0000ff;">=&quot;totalPage&quot;</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">span</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">li </span><span style="color: #ff0000;">ng-hide</span><span style="color: #0000ff;">=&quot;currentPage &gt;= totalPage&quot;</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">a </span><span style="color: #ff0000;">href</span><span style="color: #0000ff;">=&quot;&quot;</span><span style="color: #ff0000;"> ng-click</span><span style="color: #0000ff;">=&quot;nextPage()&quot;</span><span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">i </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=&quot;fa fa-play&quot;</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">i</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">a</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">a </span><span style="color: #ff0000;">href</span><span style="color: #0000ff;">=&quot;&quot;</span><span style="color: #ff0000;"> ng-click</span><span style="color: #0000ff;">=&quot;lastPage()&quot;</span><span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">i </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=&quot;fa fa-step-forward&quot;</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">i</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">a</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;</span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">ul</span><span style="color: #0000ff;">&gt;</span></pre><div><a title="复制代码"><img src="32-angular分页_files/Image [1].gif" type="image/gif" alt="复制代码"/></a></div></div><p>css:</p><div><div><a title="复制代码"><img src="32-angular分页_files/Image [2].gif" type="image/gif" alt="复制代码"/></a></div><pre><span style="color: #008000;">/*</span><span style="color: #008000;"> 分页 </span><span style="color: #008000;">*/</span><span style="color: #800000;">
+.page </span>{<span style="color: #ff0000;">
+    margin</span>:<span style="color: #0000ff;"> 15px 0</span>;<span style="color: #ff0000;">
+    padding</span>:<span style="color: #0000ff;"> 0</span>;<span style="color: #ff0000;">
+    float</span>:<span style="color: #0000ff;"> right</span>;
+}<span style="color: #800000;">
+.page li </span>{<span style="color: #ff0000;">
+    list-style</span>:<span style="color: #0000ff;"> none</span>;<span style="color: #ff0000;">
+    float</span>:<span style="color: #0000ff;"> left</span>;<span style="color: #ff0000;">
+    height</span>:<span style="color: #0000ff;"> 30px</span>;<span style="color: #ff0000;">
+    line-height</span>:<span style="color: #0000ff;"> 30px</span>;
+}<span style="color: #800000;">
+.page li input </span>{<span style="color: #ff0000;">
+    padding</span>:<span style="color: #0000ff;"> 3px 5px</span>;<span style="color: #ff0000;">
+    height</span>:<span style="color: #0000ff;"> 100%</span>;<span style="color: #ff0000;">
+    width</span>:<span style="color: #0000ff;"> 50px</span>;<span style="color: #ff0000;">
+    border</span>:<span style="color: #0000ff;"> none</span>;<span style="color: #ff0000;">
+    background-color</span>:<span style="color: #0000ff;"> #EAEEF1</span>;<span style="color: #ff0000;">
+    text-align</span>:<span style="color: #0000ff;"> center</span>;<span style="color: #ff0000;">
+    margin-right</span>:<span style="color: #0000ff;"> 10px</span>;
+}<span style="color: #800000;">
+.page li span </span>{<span style="color: #ff0000;">
+    margin-right</span>:<span style="color: #0000ff;"> 15px</span>;
+}<span style="color: #800000;">
+.page li a </span>{<span style="color: #ff0000;">
+    text-decoration</span>:<span style="color: #0000ff;"> none</span>;<span style="color: #ff0000;">
+    outline</span>:<span style="color: #0000ff;"> none</span>;<span style="color: #ff0000;">
+    margin-right</span>:<span style="color: #0000ff;"> 15px</span>;
+}
+</pre><div><a title="复制代码"><img src="32-angular分页_files/Image [3].gif" type="image/gif" alt="复制代码"/></a></div></div><p>directive:</p><div><div><a title="复制代码"><img src="32-angular分页_files/Image [4].gif" type="image/gif" alt="复制代码"/></a></div><pre>
+App.directive('paging', <span style="color: #0000ff;">function</span>() { <span style="color: #008000;">//</span><span style="color: #008000;"> 分页</span>
+    <span style="color: #0000ff;">return</span><span style="color: #000000;"> {
+        restrict: </span>'A'<span style="color: #000000;">,
+        replace: </span><span style="color: #0000ff;">true</span><span style="color: #000000;">,
+        scope: {
+            totalPage: </span>'=totalPage'<span style="color: #000000;">,
+            currentPage: </span>'=currentPage'<span style="color: #000000;">,
+            getData: </span>'&amp;getData'<span style="color: #000000;">
+        },
+        templateUrl: </span>'app/views/partials/paging.html'<span style="color: #000000;">,
+        controller: </span><span style="color: #0000ff;">function</span><span style="color: #000000;">($scope) {
+
+            $scope.firstPage </span>= <span style="color: #0000ff;">function</span>() { $scope.currentPage = 1<span style="color: #000000;">; }
+            $scope.lastPage </span>= <span style="color: #0000ff;">function</span>() { $scope.currentPage =<span style="color: #000000;"> $scope.totalPage; }
+            $scope.prePage </span>= <span style="color: #0000ff;">function</span>() { $scope.currentPage--<span style="color: #000000;">; }
+            $scope.nextPage </span>= <span style="color: #0000ff;">function</span>() { $scope.currentPage++<span style="color: #000000;">; }
+
+            $scope.$watch(</span>'currentPage', <span style="color: #0000ff;">function</span><span style="color: #000000;">(newVal, oldVal) {
+                </span><span style="color: #0000ff;">if</span>(newVal != oldVal &amp;&amp;<span style="color: #000000;"> newVal) $scope.getData();
+            })
+        }
+    };
+});</span></pre><div><a title="复制代码"><img src="32-angular分页_files/Image [5].gif" type="image/gif" alt="复制代码"/></a></div></div><p>参数：</p><pre>
+totalPage: 总页数,
+currentPage: 当前页,
+getData: 点击分页所触发的函数<br/><br/>用法：<br/><br/>controller：<br/></pre><div><div><a title="复制代码"><img src="32-angular分页_files/Image [6].gif" type="image/gif" alt="复制代码"/></a></div><pre>
+$scope.current_page = 1<span style="color: #000000;">; // 当前页
+$scope.getData </span>= <span style="color: #0000ff;">function</span><span style="color: #000000;">() {</span><span style="color: #000000;">
+   $scope.param.page </span>=<span style="color: #000000;"> $scope.current_page;
+   ConnectApi.start(</span>'post', 'index/student/getschoolclasslist', $scope.param).then(<span style="color: #0000ff;">function</span><span style="color: #000000;">(response) { // 这个ConnectApi 你大可不必关心，这是我封装的http函数
+        </span><span style="color: #0000ff;">var</span> data =<span style="color: #000000;"> ConnectApi.data({ res: response, _index: index });
+        $scope.data </span>=<span style="color: #000000;"> data.data;
+        $scope.totalpage </span>=<span style="color: #000000;"> data.data.total_page; // 服务器端返回的总页数
+   }</span><span style="color: #000000;">
+}
+$scope.getData(); // 获取数据的函数</span></pre><div><a title="复制代码"><img src="32-angular分页_files/Image [7].gif" type="image/gif" alt="复制代码"/></a></div></div><p> </p><pre><br/>html:<br/></pre><div><pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">paging total-page</span><span style="color: #0000ff;">=&quot;totalpage&quot;</span><span style="color: #ff0000;"> current-page</span><span style="color: #0000ff;">=&quot;current_page&quot;</span><span style="color: #ff0000;"> get-data</span><span style="color: #0000ff;">=&quot;getData()&quot;</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span></pre></div><p> </p></div><div><br/></div></span>
+</div></body></html> 

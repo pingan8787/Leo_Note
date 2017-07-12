@@ -1,0 +1,57 @@
+<html>
+<head>
+  <title>6-http-server</title>
+  <basefont face="微软雅黑" size="2" />
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="exporter-version" content="Evernote Windows/304720 (zh-CN, DDL); Windows/10.0.14393 (Win64);"/>
+  <style>
+    body, td {
+      font-family: 微软雅黑;
+      font-size: 10pt;
+    }
+  </style>
+</head>
+<body>
+<a name="1499"/>
+<h1>6-http-server</h1>
+<div>
+<table bgcolor="#D4DDE5" border="0">
+<tr><td><b>创建时间：</b></td><td><i>2017/3/14 星期二 22:53</i></td></tr>
+<tr><td><b>更新时间：</b></td><td><i>2017/3/14 星期二 22:58</i></td></tr>
+<tr><td><b>作者：</b></td><td><i>王平安</i></td></tr>
+</table>
+</div>
+<br/>
+
+<div>
+<span><div style="margin: 0px 0px 10px; padding: 0px 0px 0px 5px; width: 740px; min-height: 25px; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(153, 153, 153); float: left; font-style: normal; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;"><div><span style="color: rgb(255, 0, 0);"><span style="font-size: 18px;"><span style="font-family: Helvetica, Verdana, Arial, sans-serif;"><b>推荐   装在全局</b></span></span>npm install http-server -g</span></div><div><span style="font-size: 18px;"><span style="font-family: Helvetica, Verdana, Arial, sans-serif;"><b><span style="color: rgb(68, 68, 68);"><br/></span></b></span></span></div><div><span style="font-size: 18px;"><span style="font-family: Helvetica, Verdana, Arial, sans-serif;"><b><a href="http://www.cnblogs.com/lucker/p/4108838.html" style="margin: 0px; padding: 0px; color: rgb(68, 68, 68); text-decoration: none;">一个简单的零配置命令行HTTP服务器 - http-server (nodeJs)</a></b></span></span></div></div><div style="margin: 0px; padding: 5px 2px 5px 5px; color: rgb(0, 0, 0); font-size: 14px; font-family: Helvetica, Verdana, Arial, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;"><div style="margin: 0px 0px 20px; padding: 0px; word-break: break-word;"><p style="margin: 10px auto; padding: 0px; text-indent: 0px;"><span style="margin: 0px; padding: 0px;">http-server 是一个简单的零配置命令行HTTP服务器, 基于 nodeJs.</span></p><p style="margin: 10px auto; padding: 0px; text-indent: 0px;">如果你不想重复的写 nodeJs 的 web-server.js, 则可以使用这个.</p><p style="margin: 10px auto; padding: 0px; text-indent: 0px;"><strong style="margin: 0px; padding: 0px;">安装</strong> (全局安装加 -g) : </p><div style="margin: 5px 0px; padding: 5px; background-color: rgb(245, 245, 245); border: 1px solid rgb(204, 204, 204); overflow: auto; color: rgb(0, 0, 0); font-family: &quot;Courier New&quot; !important; font-size: 12px !important;"><pre style="margin: 0px; padding: 0px; white-space: pre-wrap; word-wrap: break-word; font-family: &quot;Courier New&quot; !important; font-size: 12px !important;">
+ npm install http-server 
+</pre></div><p style="margin: 10px auto; padding: 0px; text-indent: 0px;"> </p><p style="margin: 10px auto; padding: 0px; text-indent: 0px;"><strong style="margin: 0px; padding: 0px;">Windows 下使用</strong>:</p><p style="margin: 10px auto; padding: 0px; text-indent: 0px;">在站点目录下开启命令行输入</p><div style="margin: 5px 0px; padding: 5px; background-color: rgb(245, 245, 245); border: 1px solid rgb(204, 204, 204); overflow: auto; color: rgb(0, 0, 0); font-family: &quot;Courier New&quot; !important; font-size: 12px !important;"><pre style="margin: 0px; padding: 0px; white-space: pre-wrap; word-wrap: break-word; font-family: &quot;Courier New&quot; !important; font-size: 12px !important;">
+ http-server
+</pre></div><p style="margin: 10px auto; padding: 0px; text-indent: 0px;">　　</p><p style="margin: 10px auto; padding: 0px; text-indent: 0px;">访问: <em style="margin: 0px; padding: 0px;"><a href="http://localhost:8080/" style="margin: 0px; padding: 0px; color: rgb(0, 0, 0); text-decoration: underline;">http://localhost:8080</a> or <a href="http://127.0.0.1:8080/" style="margin: 0px; padding: 0px; color: rgb(0, 0, 0); text-decoration: underline;" target="_blank">http://127.0.0.1:8080</a> </em></p><p style="margin: 10px auto; padding: 0px; text-indent: 0px;"> </p><p style="margin: 10px auto; padding: 0px; text-indent: 0px;">使用于package.json</p><div style="margin: 5px 0px; padding: 5px; background-color: rgb(245, 245, 245); border: 1px solid rgb(204, 204, 204); overflow: auto; color: rgb(0, 0, 0); font-family: &quot;Courier New&quot; !important; font-size: 12px !important;"><pre style="margin: 0px; padding: 0px; white-space: pre-wrap; word-wrap: break-word; font-family: &quot;Courier New&quot; !important; font-size: 12px !important;">
+ &quot;scripts&quot;<span style="margin: 0px; padding: 0px; font-family: &quot;Courier New&quot; !important; font-size: 12px !important; color: rgb(0, 0, 0);">: {
+</span>     &quot;start&quot;: &quot;http-server -a 0.0.0.0 -p 8000&quot;<span style="margin: 0px; padding: 0px; font-family: &quot;Courier New&quot; !important; font-size: 12px !important; color: rgb(0, 0, 0);">,
+ }</span></pre></div><p style="margin: 10px auto; padding: 0px; text-indent: 0px;"> </p><p style="margin: 10px auto; padding: 0px; text-indent: 0px;"><strong style="margin: 0px; padding: 0px;">参数</strong> :</p><div style="margin: 5px 0px; padding: 5px; background-color: rgb(245, 245, 245); border: 1px solid rgb(204, 204, 204); overflow: auto; color: rgb(0, 0, 0); font-family: &quot;Courier New&quot; !important; font-size: 12px !important;"><div style="margin: 5px 0px 0px; padding: 0px; background-color: rgb(245, 245, 245);"><span style="margin: 0px; padding: 0px 5px 0px 0px; font-family: &quot;Courier New&quot; !important; font-size: 12px !important;"><a style="margin: 0px; padding: 0px; color: rgb(0, 0, 0); text-decoration: underline; background-color: rgb(245, 245, 245) !important; border: none !important;" title="复制代码"><img src="6-http-server_files/Image.gif" type="image/gif" alt="复制代码" style="margin: 0px; padding: 0px; max-width: 900px; border: none !important; background-color: rgb(245, 245, 245) !important; height: auto;"/></a></span></div><pre style="margin: 0px; padding: 0px; white-space: pre-wrap; word-wrap: break-word; font-family: &quot;Courier New&quot; !important; font-size: 12px !important;">
+-p 端口号 (默认 8080<span style="margin: 0px; padding: 0px; font-family: &quot;Courier New&quot; !important; font-size: 12px !important; color: rgb(0, 0, 0);">)
+
+</span>-a IP 地址 (默认 0.0.0.0<span style="margin: 0px; padding: 0px; font-family: &quot;Courier New&quot; !important; font-size: 12px !important; color: rgb(0, 0, 0);">)
+
+</span>-d 显示目录列表 (默认 'True'<span style="margin: 0px; padding: 0px; font-family: &quot;Courier New&quot; !important; font-size: 12px !important; color: rgb(0, 0, 0);">)
+
+</span>-i 显示 autoIndex (默认 'True'<span style="margin: 0px; padding: 0px; font-family: &quot;Courier New&quot; !important; font-size: 12px !important; color: rgb(0, 0, 0);">)
+
+</span>-e or --ext 如果没有提供默认的文件扩展名(默认 'html'<span style="margin: 0px; padding: 0px; font-family: &quot;Courier New&quot; !important; font-size: 12px !important; color: rgb(0, 0, 0);">)
+
+</span>-s or --<span style="margin: 0px; padding: 0px; font-family: &quot;Courier New&quot; !important; font-size: 12px !important; color: rgb(0, 0, 0);">silent 禁止日志信息输出
+
+</span>--cors 启用 CORS via the Access-Control-Allow-<span style="margin: 0px; padding: 0px; font-family: &quot;Courier New&quot; !important; font-size: 12px !important; color: rgb(0, 0, 0);">Origin header
+
+</span>-<span style="margin: 0px; padding: 0px; font-family: &quot;Courier New&quot; !important; font-size: 12px !important; color: rgb(0, 0, 0);">o 在开始服务后打开浏览器</span></pre><pre style="margin: 0px; padding: 0px; white-space: pre-wrap; word-wrap: break-word; font-family: &quot;Courier New&quot; !important; font-size: 12px !important;">
+-c 为 cache-control max-age header 设置Cache time(秒) , e.g. -c10 for 10 seconds (defaults to '3600'). 禁用 caching, 则使用 -c-1.
+</pre><div style="margin: 0px; padding: 0px; font-family: &quot;Courier New&quot; !important; font-size: 12px !important;"><span style="margin: 0px; padding: 0px; font-family: &quot;Courier New&quot; !important; font-size: 12px !important; color: rgb(0, 0, 0);">-U 或 --utc 使用UTC time 格式化log消息<br style="margin: 0px; padding: 0px;"/><br style="margin: 0px; padding: 0px;"/>
+-P or --proxy Proxies all requests which can't be resolved locally to the given url. e.g.: -P <a href="http://someurl.com/" style="margin: 0px; padding: 0px; color: rgb(0, 0, 0); text-decoration: underline;">http://someurl.com</a><br style="margin: 0px; padding: 0px;"/><br style="margin: 0px; padding: 0px;"/>
+-S or --ssl 启用 https<br style="margin: 0px; padding: 0px;"/><br style="margin: 0px; padding: 0px;"/>
+-C or --cert ssl cert 文件路径 (default: cert.pem)<br style="margin: 0px; padding: 0px;"/><br style="margin: 0px; padding: 0px;"/>
+-K or --key Path to ssl key file (default: key.pem).<br style="margin: 0px; padding: 0px;"/><br style="margin: 0px; padding: 0px;"/>
+-r or --robots Provide a /robots.txt (whose content defaults to 'User-agent: *\nDisallow: /')<br style="margin: 0px; padding: 0px;"/><br style="margin: 0px; padding: 0px;"/></span>-h or --<span style="margin: 0px; padding: 0px; font-family: &quot;Courier New&quot; !important; font-size: 12px !important; color: rgb(0, 0, 0);">help 打印以上列表并退出 </span></div></div></div></div></span>
+</div></body></html> 

@@ -1,0 +1,153 @@
+<html>
+<head>
+  <title>32-js setTimeout 参数传递使用介绍</title>
+  <basefont face="微软雅黑" size="2" />
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="exporter-version" content="Evernote Windows/304720 (zh-CN, DDL); Windows/10.0.14393 (Win64);"/>
+  <style>
+    body, td {
+      font-family: 微软雅黑;
+      font-size: 10pt;
+    }
+  </style>
+</head>
+<body>
+<a name="906"/>
+<h1>32-js setTimeout 参数传递使用介绍</h1>
+<div>
+<table bgcolor="#D4DDE5" border="0">
+<tr><td><b>创建时间：</b></td><td><i>2017/3/29 星期三 14:27</i></td></tr>
+<tr><td><b>更新时间：</b></td><td><i>2017/3/29 星期三 14:27</i></td></tr>
+<tr><td><b>作者：</b></td><td><i>王平安</i></td></tr>
+</table>
+</div>
+<br/>
+
+<div>
+<span><div>window.settimeout()方法要调用带参数的函数有两种方法：<br/>
+1.<br/><div><a style="CURSOR: pointer"><u>复制代码</u></a> 代码如下:</div><div><br/>
+function init(){<br/>
+var url = &quot;&lt;%=basePath%&gt;fetchwater.do?method=searchRealWater&amp;xzqh=&quot; + &quot;&lt;%=xzqh%&gt;&quot; + &quot;&amp;rand=&quot;+Math.random();<br/>
+//alert(url);<br/>
+window.setTimeout(function(){ searchJDWater(url);},100);<br/>
+}<br/></div><br/>
+2.<br/><div><a style="CURSOR: pointer"><u>复制代码</u></a> 代码如下:</div><div><br/>
+function init(){<br/>
+var url = &quot;&lt;%=basePath%&gt;fetchwater.do?method=searchRealWater&amp;xzqh=&quot; + &quot;&lt;%=xzqh%&gt;&quot; + &quot;&amp;rand=&quot;+Math.random();<br/>
+//alert(url);<br/>
+window.setTimeout(“searchJDWater(”+url+“)”, 100);<br/>
+}<br/></div><br/>
+注意： 带参数方法使用setTimeout要注意，setTimeout(&quot;函数名(&quot;+参数+&quot;)&quot;,毫秒数)，这里的参数只能是字符串形式的，而不能传递一个对象<br/>
+---------------------------<br/>
+以下的方法是错误的，而且浏览器状态栏会提示参数无效：<br/><div><a style="CURSOR: pointer"><u>复制代码</u></a> 代码如下:</div><div><br/>
+function init(){<br/>
+var url = &quot;&lt;%=basePath%&gt;fetchwater.do?method=searchRealWater&amp;xzqh=&quot; + &quot;&lt;%=xzqh%&gt;&quot; + &quot;&amp;rand=&quot;+Math.random();<br/>
+//alert(url);<br/>
+window.setTimeout(searchJDWater(url), 100);<br/>
+}<br/></div><br/>
+--------------------------------------------------------------<br/>
+settimeout()函数扩展：<br/>
+网上很多朋友也在问此类问题，我在此说明下，以下我举几个个简单的例子：<br/>
+　　网上查找下“带参数 setTimeout”，很多朋友写了很多方法来实现使用setTimeout带对象的方法循环，例如：<br/><div><a style="CURSOR: pointer"><u>复制代码</u></a> 代码如下:</div><div><br/>
+　　&lt;script language=&quot;javascript&quot;&gt;<br/>
+　　var __sto = setTimeout;<br/>
+　　window.setTimeout = function(callback,timeout,param)<br/>
+　　{<br/>
+　　var args = Array.prototype.slice.call(arguments,2);<br/>
+　　var _cb = function()<br/>
+　　{<br/>
+　　callback.apply(null,args);<br/>
+　　}<br/>
+　　__sto(_cb,timeout);<br/>
+　　}<br/>
+　　//测试代码<br/>
+　　function aaaa(a)<br/>
+　　{<br/>
+　　alert(a);<br/>
+　　}<br/>
+　　function aaaaa(a,b,c)<br/>
+　　{<br/>
+　　alert(a + b + c);<br/>
+　　}<br/>
+　　var a = new Object();<br/>
+　　window.setTimeout(aaaa,1000,a);<br/>
+　　window.setTimeout(aaaaa,2000,a,6,7);<br/>
+　　&lt;/script&gt;<br/></div><br/>
+　　此例中，setTimeout用法，setTimeout(回调函数,时间,参数1,...,参数n)。<br/>
+　　又例如：<br/>
+　　2：<br/><div><a style="CURSOR: pointer"><u>复制代码</u></a> 代码如下:</div><div><br/>
+　　&lt;script type=&quot;text/javascript&quot;&gt;<br/>
+　　var _st = window.setTimeout;<br/>
+　　window.setTimeout = function(fRef, mDelay) {<br/>
+　　if(typeof fRef == 'function'){<br/>
+　　var argu = Array.prototype.slice.call(arguments,2);<br/>
+　　var f = (function(){ fRef.apply(null, argu); });<br/>
+　　return _st(f, mDelay);<br/>
+　　}<br/>
+　　return _st(fRef,mDelay);<br/>
+　　}<br/>
+　　function test(x){<br/>
+　　alert(x);<br/>
+　　}<br/>
+　　window.setTimeout(test,1000,'fason');<br/>
+　　&lt;/script&gt;<br/></div><br/>
+　　此例中，重载了一下window.setTimeout,用apply去回调前面的function。<br/>
+　　例1：<br/><div><a style="CURSOR: pointer"><u>复制代码</u></a> 代码如下:</div><div><br/>
+　　&lt;script language=&quot;javascript&quot;&gt;<br/>
+　　function test(obj)<br/>
+　　{<br/>
+　　alert(obj);<br/>
+　　setTimeout(&quot;test(&quot;+ obj +&quot;)&quot;,1000);<br/>
+　　}<br/>
+　　&lt;/script&gt;<br/>
+　　&lt;input id=&quot;testButton&quot; type=&quot;button&quot; onclick=&quot;test(1)&quot;&gt;<br/></div><br/>
+　　当鼠标按下此按钮时调用test()，将&quot;1&quot;传递进去，屏幕上每隔1000毫秒（1秒）弹出一次对话框，显示1，没问题。<br/>
+　　例2：<br/><div><a style="CURSOR: pointer"><u>复制代码</u></a> 代码如下:</div><div><br/>
+　　&lt;script language=&quot;javascript&quot;&gt;<br/>
+　　function test(obj)<br/>
+　　{<br/>
+　　alert(obj);<br/>
+　　setTimeout(&quot;test(&quot;+ obj +&quot;)&quot;,1000);<br/>
+　　}<br/>
+　　&lt;/script&gt;<br/>
+　　&lt;input id=&quot;btnTest&quot; type=&quot;button&quot; onclick=&quot;test(this)&quot;&gt;<br/></div><br/>
+　　这里的this可以当做document.getElementById(&quot;btnTest&quot;)来理解，当鼠标按下此按钮时向test函数传递的是一个对象，屏幕显示[object]，<br/>
+　　1000毫秒之后不再显示第二次。问题来了，浏览器左下报脚本错误，详细信息里显示object未定义。<br/>
+　　例3：<br/><div><a style="CURSOR: pointer"><u>复制代码</u></a> 代码如下:</div><div><br/>
+　　&lt;script language=&quot;javascript&quot;&gt;<br/>
+　　function test(obj)<br/>
+　　{<br/>
+　　alert(obj);<br/>
+　　setTimeout(&quot;test()&quot;,1000);<br/>
+　　}<br/>
+　　&lt;/script&gt;<br/>
+　　&lt;input id=&quot;testButton&quot; type=&quot;button&quot; onclick=&quot;test(this)&quot;&gt;<br/></div><br/>
+　　setTimeout里的test()没带参数，第一次显示[object]，1000毫秒之后显示undefined，变量尚未赋值，也就是说用此方式可以实现带参数的方<br/>
+　　法循环，但是参数被销毁。<br/>
+　　其实这很简单就可以实现，不必写那么长的代码来实现。<br/>
+　　例4：<br/><div><a style="CURSOR: pointer"><u>复制代码</u></a> 代码如下:</div><div><br/>
+　　&lt;script language=&quot;javascript&quot;&gt;<br/>
+　　function test(obj)<br/>
+　　{<br/>
+　　alert(obj);<br/>
+　　setTimeout(&quot;test('&quot;+ obj +&quot;')&quot;,1000);<br/>
+　　}<br/>
+　　&lt;/script&gt;<br/>
+　　&lt;input id=&quot;testButton&quot; type=&quot;button&quot; onclick=&quot;test(this)&quot;&gt;<br/></div><br/>
+　　注意，setTimeout里的test中的参数obj前后的引号，在双引号内有一对单引号，这样：setTimeout(&quot;test(单引号双引号+obj+双引号单引<br/>
+　　号)&quot;)，行了吧~每隔1000毫秒屏幕显示一次[object]，传递对象成功。<br/>
+　　———————————————————————————————————————<br/>
+　　疑义：第4条 最终传走的是“对象”的字符串“object” 而不是初始的对象obj。只是obj的类型而已。并没有达到传递对象的作用。<br/>
+　　可以测试一下代码： 弹出传来对象的id<br/><div><a style="CURSOR: pointer"><u>复制代码</u></a> 代码如下:</div></div><div><br/>
+　　&lt;body&gt;<br/>
+　　&lt;div id=&quot;sssss&quot;&gt;&lt;/div&gt;<br/>
+　　&lt;/body&gt;<br/>
+　　&lt;script language=&quot;javascript&quot;&gt;<br/>
+　　obj=document.getElementById('sssss');<br/>
+　　function test(obj)<br/>
+　　{<br/>
+　　alert(obj.id);<br/>
+　　setTimeout(&quot;test('&quot;+ obj +&quot;')&quot;,1000);<br/>
+　　}<br/>
+　　test(obj)</div><div>　　&lt;/script&gt;</div></span>
+</div></body></html> 
