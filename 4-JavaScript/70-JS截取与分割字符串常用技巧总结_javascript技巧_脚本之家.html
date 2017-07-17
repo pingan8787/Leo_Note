@@ -1,0 +1,79 @@
+<html>
+<head>
+  <title>70-JS截取与分割字符串常用技巧总结_javascript技巧_脚本之家</title>
+  <basefont face="微软雅黑" size="2" />
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="exporter-version" content="Evernote Windows/304720 (zh-CN, DDL); Windows/10.0.14393 (Win64);"/>
+  <style>
+    body, td {
+      font-family: 微软雅黑;
+      font-size: 10pt;
+    }
+  </style>
+</head>
+<body>
+<a name="1928"/>
+<h1>70-JS截取与分割字符串常用技巧总结_javascript技巧_脚本之家</h1>
+<div>
+<table bgcolor="#D4DDE5" border="0">
+<tr><td><b>创建时间：</b></td><td><i>2017/7/14 星期五 16:05</i></td></tr>
+<tr><td><b>更新时间：</b></td><td><i>2017/7/14 星期五 16:10</i></td></tr>
+</table>
+</div>
+<br/>
+
+<div>
+<span><div style="-evernote-webclip:true"><br/><div style="font-size: 16px; display: inline-block;"><div style="font:12px/1.5 tahoma,arial,宋体;background-color:rgb(255, 255, 255);"><div style="margin:0px;padding:0px;"><h1 style="margin:0px;font-size:100%;font-weight:500;font-family:&quot;Microsoft YaHei&quot;;padding:15px 0px 10px;color:rgb(51, 51, 51);font:600 16px &quot;microsoft yahei&quot;,arial;margin-bottom:10px;text-align:center;border-bottom:1px solid rgb(188, 213, 229);">JS截取与分割字符串常用技巧总结</h1><p style="margin:0px;padding:5px;color:rgb(153, 153, 153);text-align:center;">作者：華安 字体：[<a href="#" style="color:rgb(51, 51, 51);text-decoration:none;">增加</a> <a href="#" style="color:rgb(51, 51, 51);text-decoration:none;">减小</a>] 类型：转载 时间：2015-11-10 <a href="http://www.jb51.net/article/74614.htm#comments" style="color:rgb(51, 51, 51);text-decoration:none;">我要评论</a></p></div><div style="margin:10px 5px;padding:10px;background:rgb(246, 251, 255) none repeat scroll 0% 0%;color:rgb(51, 51, 51);border-left:3px solid rgb(59, 176, 219);font-size:14px;"><div style="margin:0px;padding:0px;">这篇文章主要介绍了JS截取与分割字符串常用技巧,以实例形式分析你了JavaScript针对字符串的截取与分割常用函数的定义、功能及使用技巧,并补充分析了substr和substring方法的区别,需要的朋友可以参考下</div></div><div style="padding:0px;margin:5px auto;width:680px;text-align:center;"><span style="text-align:center;display:block;height:0px;overflow:hidden;visibility:hidden;">.</span><span style="text-align:center;display:block;height:0px;overflow:hidden;visibility:hidden;clear:both;">.</span></div><div style="margin:0px 10px;padding:20px 5px 0px;width:660px;text-align:left;clear:both;font-size:14px;overflow-wrap:break-word;word-break:break-all;overflow:hidden;"><p style="margin:0px;padding:5px 0px;font-size:14px;">本文实例讲述了JS截取与分割字符串的常用方法。分享给大家供大家参考，具体如下：</p><p style="margin:0px;padding:5px 0px;font-size:14px;">JS截取字符串可使用 substring()或者slice()<br/>
+ <br/><strong>函数：substring()</strong></p><p style="margin:0px;padding:5px 0px;font-size:14px;">定义：substring(start,end)表示从start到end之间的字符串，包括start位置的字符但是不包括end位置的字符。</p><p style="margin:0px;padding:5px 0px;font-size:14px;">功能：字符串截取，比如想从&quot;MinidxSearchEngine&quot;中得到&quot;Minidx&quot;就要用到substring(0,6)</p><p style="margin:0px;padding:5px 0px;font-size:14px;">例子：</p><div style="font-size:14px;margin:0px;padding:0px;width:660px;overflow:hidden;clear:both;text-align:left;"><pre style="margin:3px auto 0px;padding:0px 0px 0px 5px;background:rgb(255, 255, 255) none repeat scroll 0% 0%;width:640px;clear:both;font-size:14px;border-left:3px solid rgb(108, 226, 108);">
+var src=&quot;images/off_1.png&quot;;
+alert(src.substring(7,10));
+//弹出值为：off
+
+</pre></div><p style="margin:0px;padding:5px 0px;font-size:14px;"><strong>函数：substr()</strong></p><p style="margin:0px;padding:5px 0px;font-size:14px;">定义：substr(start,length)表示从start位置开始，截取length长度的字符串。</p><p style="margin:0px;padding:5px 0px;font-size:14px;">功能：字符串截取</p><p style="margin:0px;padding:5px 0px;font-size:14px;">例子：</p><div style="font-size:14px;margin:0px;padding:0px;width:660px;overflow:hidden;clear:both;text-align:left;"><pre style="margin:3px auto 0px;padding:0px 0px 0px 5px;background:rgb(255, 255, 255) none repeat scroll 0% 0%;width:640px;clear:both;font-size:14px;border-left:3px solid rgb(108, 226, 108);">
+var src=&quot;images/off_1.png&quot;;
+alert(src.substr(7,3));
+//弹出值为：off
+
+</pre></div><p style="margin:0px;padding:5px 0px;font-size:14px;"><strong>函数：split()</strong></p><p style="margin:0px;padding:5px 0px;font-size:14px;">功能：使用一个指定的分隔符把一个字符串分割存储到数组</p><p style="margin:0px;padding:5px 0px;font-size:14px;">例子：</p><div style="font-size:14px;margin:0px;padding:0px;width:660px;overflow:hidden;clear:both;text-align:left;"><pre style="margin:3px auto 0px;padding:0px 0px 0px 5px;background:rgb(255, 255, 255) none repeat scroll 0% 0%;width:640px;clear:both;font-size:14px;border-left:3px solid rgb(108, 226, 108);">
+str=&quot;jpg|bmp|gif|ico|png&quot;;
+arr=theString.split(&quot;|&quot;);
+//arr是一个包含字符值&quot;jpg&quot;、&quot;bmp&quot;、&quot;gif&quot;、&quot;ico&quot;和&quot;png&quot;的数组
+
+</pre></div><p style="margin:0px;padding:5px 0px;font-size:14px;"><strong>函数：John()</strong></p><p style="margin:0px;padding:5px 0px;font-size:14px;">功能：使用您选择的分隔符将一个数组合并为一个字符串</p><p style="margin:0px;padding:5px 0px;font-size:14px;">例子：</p><div style="font-size:14px;margin:0px;padding:0px;width:660px;overflow:hidden;clear:both;text-align:left;"><pre style="margin:3px auto 0px;padding:0px 0px 0px 5px;background:rgb(255, 255, 255) none repeat scroll 0% 0%;width:640px;clear:both;font-size:14px;border-left:3px solid rgb(108, 226, 108);">
+var delimitedString=myArray.join(delimiter);
+var myList=new Array(&quot;jpg&quot;,&quot;bmp&quot;,&quot;gif&quot;,&quot;ico&quot;,&quot;png&quot;);
+var portableList=myList.join(&quot;|&quot;);
+//结果是jpg|bmp|gif|ico|png
+
+</pre></div><p style="margin:0px;padding:5px 0px;font-size:14px;"><strong>函数：indexOf()</strong></p><p style="margin:0px;padding:5px 0px;font-size:14px;">功能：返回字符串中匹配子串的第一个字符的下标</p><div style="font-size:14px;margin:0px;padding:0px;width:660px;overflow:hidden;clear:both;text-align:left;"><pre style="margin:3px auto 0px;padding:0px 0px 0px 5px;background:rgb(255, 255, 255) none repeat scroll 0% 0%;width:640px;clear:both;font-size:14px;border-left:3px solid rgb(108, 226, 108);">
+var myString=&quot;JavaScript&quot;;
+var w=myString.indexOf(&quot;v&quot;);w will be 2
+var x=myString.indexOf(&quot;S&quot;);x will be 4
+var y=myString.indexOf(&quot;Script&quot;);y will also be 4
+var z=myString.indexOf(&quot;key&quot;);z will be -1 
+
+</pre></div><p style="margin:0px;padding:5px 0px;font-size:14px;"><strong>函数：lastIndexOf()</strong></p><p style="margin:0px;padding:5px 0px;font-size:14px;">定义：lastIndexOf()方法返回从右向左出现某个字符或字符串的首个字符索引值（与indexOf相反）</p><p style="margin:0px;padding:5px 0px;font-size:14px;">功能：返回字符串索引值</p><p style="margin:0px;padding:5px 0px;font-size:14px;">例子：</p><div style="font-size:14px;margin:0px;padding:0px;width:660px;overflow:hidden;clear:both;text-align:left;"><pre style="margin:3px auto 0px;padding:0px 0px 0px 5px;background:rgb(255, 255, 255) none repeat scroll 0% 0%;width:640px;clear:both;font-size:14px;border-left:3px solid rgb(108, 226, 108);">
+var src=&quot;images/off_1.png&quot;;
+alert(src.lastIndexOf('/'));
+alert(src.lastIndexOf('g'));
+//弹出值依次为：6,15
+
+</pre></div><p style="margin:0px;padding:5px 0px;font-size:14px;"><strong>补充：substr 和 substring方法的区别</strong></p><p style="margin:0px;padding:5px 0px;font-size:14px;"><strong>substr 方法</strong></p><p style="margin:0px;padding:5px 0px;font-size:14px;">返回一个从指定位置开始的指定长度的子字符串。</p><p style="margin:0px;padding:5px 0px;font-size:14px;">stringvar.substr(start [, length ])</p><p style="margin:0px;padding:5px 0px;font-size:14px;">参数</p><p style="margin:0px;padding:5px 0px;font-size:14px;">stringvar</p><p style="margin:0px;padding:5px 0px;font-size:14px;">必选项。要提取子字符串的字符串文字或 String 对象。</p><p style="margin:0px;padding:5px 0px;font-size:14px;">start</p><p style="margin:0px;padding:5px 0px;font-size:14px;">必选项。所需的子字符串的起始位置。字符串中的第一个字符的索引为 0。</p><p style="margin:0px;padding:5px 0px;font-size:14px;">length</p><p style="margin:0px;padding:5px 0px;font-size:14px;">可选项。在返回的子字符串中应包括的字符个数。</p><p style="margin:0px;padding:5px 0px;font-size:14px;">说明</p><p style="margin:0px;padding:5px 0px;font-size:14px;">如果 length 为 0 或负数，将返回一个空字符串。如果没有指定该参数，则子字符串将延续到 stringvar 的最后。</p><p style="margin:0px;padding:5px 0px;font-size:14px;">示例</p><p style="margin:0px;padding:5px 0px;font-size:14px;">下面的示例演示了substr 方法的用法。</p><div style="font-size:14px;margin:0px;padding:0px;width:660px;overflow:hidden;clear:both;text-align:left;"><pre style="margin:3px auto 0px;padding:0px 0px 0px 5px;background:rgb(255, 255, 255) none repeat scroll 0% 0%;width:640px;clear:both;font-size:14px;border-left:3px solid rgb(108, 226, 108);">
+function SubstrDemo(){
+  var s, ss;        // 声明变量。
+  var s = &quot;The rain in Spain falls mainly in the plain.&quot;;
+  ss = s.substr(12, 5); // 获取子字符串。
+  return(ss);        // 返回 &quot;Spain&quot;。
+}
+
+</pre></div><p style="margin:0px;padding:5px 0px;font-size:14px;"><strong>substring 方法</strong></p><p style="margin:0px;padding:5px 0px;font-size:14px;">返回位于 String 对象中指定位置的子字符串。</p><p style="margin:0px;padding:5px 0px;font-size:14px;">strVariable.substring(start, end)<br/>
+&quot;String Literal&quot;.substring(start, end)</p><p style="margin:0px;padding:5px 0px;font-size:14px;">参数</p><p style="margin:0px;padding:5px 0px;font-size:14px;">start</p><p style="margin:0px;padding:5px 0px;font-size:14px;">指明子字符串的起始位置，该索引从 0 开始起算。</p><p style="margin:0px;padding:5px 0px;font-size:14px;">end</p><p style="margin:0px;padding:5px 0px;font-size:14px;">指明子字符串的结束位置，该索引从 0 开始起算。</p><p style="margin:0px;padding:5px 0px;font-size:14px;">说明</p><p style="margin:0px;padding:5px 0px;font-size:14px;">substring 方法将返回一个包含从 start 到最后（不包含 end ）的子字符串的字符串。</p><p style="margin:0px;padding:5px 0px;font-size:14px;">substring 方法使用 start 和 end 两者中的较小值作为子字符串的起始点。例如， strvar.substring(0, 3) 和 strvar.substring(3, 0) 将返回相同的子字符串。</p><p style="margin:0px;padding:5px 0px;font-size:14px;">如果 start 或 end 为 NaN 或者负数，那么将其替换为0。</p><p style="margin:0px;padding:5px 0px;font-size:14px;">子字符串的长度等于 start 和 end 之差的绝对值。例如，在 strvar.substring(0, 3) 和 strvar.substring(3, 0) 返回的子字符串的的长度是 3。</p><p style="margin:0px;padding:5px 0px;font-size:14px;">示例</p><p style="margin:0px;padding:5px 0px;font-size:14px;">下面的示例演示了 substring 方法的用法。</p><div style="font-size:14px;margin:0px;padding:0px;width:660px;overflow:hidden;clear:both;text-align:left;"><pre style="margin:3px auto 0px;padding:0px 0px 0px 5px;background:rgb(255, 255, 255) none repeat scroll 0% 0%;width:640px;clear:both;font-size:14px;border-left:3px solid rgb(108, 226, 108);">
+function SubstringDemo(){
+  var ss; // 声明变量。
+  var s = &quot;The rain in Spain falls mainly in the plain..&quot;;
+  ss = s.substring(12, 17); // 取子字符串。
+  return(ss); // 返回子字符串。
+}
+
+</pre></div><p style="margin:0px;padding:5px 0px;font-size:14px;">希望本文所述对大家JavaScript程序设计有所帮助。</p></div><div style="margin:0px;padding:10px 20px;text-align:left;overflow:hidden;clear:both;"><h4 style="margin:0px;padding:0px;font-size:14px;font-weight:bold;color:rgb(0, 102, 153);">您可能感兴趣的文章:</h4><ul style="list-style:outside none none;margin:0px;padding:0px;"><li style="margin:0px;padding:0px;background:rgba(0, 0, 0, 0) url(&quot;http://common.jb51.net/images/newsli.gif&quot;) no-repeat scroll 8px 50%;text-align:left;color:rgb(0, 102, 153);padding-left:20px;font-size:14px;display:block;"><a href="http://www.jb51.net/article/107516.htm" style="text-decoration:none;color:rgb(0, 102, 153);font-size:14px;" target="_blank" title="JS字符串长度判断,超出进行自动截取的实例(支持中文)">JS字符串长度判断,超出进行自动截取的实例(支持中文)</a></li><li style="margin:0px;padding:0px;background:rgba(0, 0, 0, 0) url(&quot;http://common.jb51.net/images/newsli.gif&quot;) no-repeat scroll 8px 50%;text-align:left;color:rgb(0, 102, 153);padding-left:20px;font-size:14px;display:block;"><a href="http://www.jb51.net/article/104479.htm" style="text-decoration:none;color:rgb(0, 102, 153);font-size:14px;" target="_blank" title="JS基于正则截取替换特定字符之间字符串操作示例">JS基于正则截取替换特定字符之间字符串操作示例</a></li><li style="margin:0px;padding:0px;background:rgba(0, 0, 0, 0) url(&quot;http://common.jb51.net/images/newsli.gif&quot;) no-repeat scroll 8px 50%;text-align:left;color:rgb(0, 102, 153);padding-left:20px;font-size:14px;display:block;"><a href="http://www.jb51.net/article/102237.htm" style="text-decoration:none;color:rgb(0, 102, 153);font-size:14px;" target="_blank" title="JS正则截取两个字符串之间及字符串前后内容的方法">JS正则截取两个字符串之间及字符串前后内容的方法</a></li><li style="margin:0px;padding:0px;background:rgba(0, 0, 0, 0) url(&quot;http://common.jb51.net/images/newsli.gif&quot;) no-repeat scroll 8px 50%;text-align:left;color:rgb(0, 102, 153);padding-left:20px;font-size:14px;display:block;"><a href="http://www.jb51.net/article/102229.htm" style="text-decoration:none;color:rgb(0, 102, 153);font-size:14px;" target="_blank" title="JS使用正则截取两个字符串之间的字符串实现方法详解">JS使用正则截取两个字符串之间的字符串实现方法详解</a></li><li style="margin:0px;padding:0px;background:rgba(0, 0, 0, 0) url(&quot;http://common.jb51.net/images/newsli.gif&quot;) no-repeat scroll 8px 50%;text-align:left;color:rgb(0, 102, 153);padding-left:20px;font-size:14px;display:block;"><a href="http://www.jb51.net/article/86488.htm" style="text-decoration:none;color:rgb(0, 102, 153);font-size:14px;" target="_blank" title="js 截取或者替换字符串中的数字实现方法">js 截取或者替换字符串中的数字实现方法</a></li><li style="margin:0px;padding:0px;background:rgba(0, 0, 0, 0) url(&quot;http://common.jb51.net/images/newsli.gif&quot;) no-repeat scroll 8px 50%;text-align:left;color:rgb(0, 102, 153);padding-left:20px;font-size:14px;display:block;"><a href="http://www.jb51.net/article/84380.htm" style="text-decoration:none;color:rgb(0, 102, 153);font-size:14px;" target="_blank" title="js字符串截取函数slice、substring和substr的比较">js字符串截取函数slice、substring和substr的比较</a></li><li style="margin:0px;padding:0px;background:rgba(0, 0, 0, 0) url(&quot;http://common.jb51.net/images/newsli.gif&quot;) no-repeat scroll 8px 50%;text-align:left;color:rgb(0, 102, 153);padding-left:20px;font-size:14px;display:block;"><a href="http://www.jb51.net/article/80488.htm" style="text-decoration:none;color:rgb(0, 102, 153);font-size:14px;" target="_blank" title="JS判断字符串字节数并截取长度的方法">JS判断字符串字节数并截取长度的方法</a></li><li style="margin:0px;padding:0px;background:rgba(0, 0, 0, 0) url(&quot;http://common.jb51.net/images/newsli.gif&quot;) no-repeat scroll 8px 50%;text-align:left;color:rgb(0, 102, 153);padding-left:20px;font-size:14px;display:block;"><a href="http://www.jb51.net/article/75343.htm" style="text-decoration:none;color:rgb(0, 102, 153);font-size:14px;" target="_blank" title="JS截取字符串实例详解">JS截取字符串实例详解</a></li><li style="margin:0px;padding:0px;background:rgba(0, 0, 0, 0) url(&quot;http://common.jb51.net/images/newsli.gif&quot;) no-repeat scroll 8px 50%;text-align:left;color:rgb(0, 102, 153);padding-left:20px;font-size:14px;display:block;"><a href="http://www.jb51.net/article/65079.htm" style="text-decoration:none;color:rgb(0, 102, 153);font-size:14px;" target="_blank" title="javascript截取字符串小结">javascript截取字符串小结</a></li><li style="margin: 0px; padding: 0px 0px 0px 20px; background-image: url(http://common.jb51.net/images/newsli.gif); background-attachment: scroll; background-color: rgba(0, 0, 0, 0); text-align: left; font-size: 14px; display: block; background-position: 8px 50%; background-repeat: no-repeat no-repeat;"><a href="http://www.jb51.net/article/107524.htm" style="text-decoration:none;color:rgb(0, 102, 153);font-size:14px;" target="_blank" title="Js自动截取字符串长度,添加省略号(……)的实现方法">Js自动截取字符串长度,添加省略号(……)的实现方法</a></li></ul></div></div></div><br/></div></span>
+</div></body></html> 
